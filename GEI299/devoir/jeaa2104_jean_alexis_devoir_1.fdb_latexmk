@@ -1,7 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1758750950.04597 "c:/Users/Utilisateur/Documents/Devoirs/GEI299/devoir/jeaa2104_jean_alexis_devoir_1.tex" "jeaa2104_jean_alexis_devoir_1.pdf" "jeaa2104_jean_alexis_devoir_1" 1758750951.16936 0
-  "Diagramme.png" 1758750696 35756 3f20bf04eaace6e7f7b19fd21b609ad9 ""
-  "c:/Users/Utilisateur/Documents/Devoirs/GEI299/devoir/jeaa2104_jean_alexis_devoir_1.tex" 1758750949 5030 d56ce2fce63e8f352641cfab895b3928 ""
+["pdflatex"] 1758751675.23764 "c:/Users/Utilisateur/Documents/Devoirs/GEI299/devoir/jeaa2104_jean_alexis_devoir_1.tex" "jeaa2104_jean_alexis_devoir_1.pdf" "jeaa2104_jean_alexis_devoir_1" 1758751676.30146 0
+  "c:/Users/Utilisateur/Documents/Devoirs/GEI299/devoir/jeaa2104_jean_alexis_devoir_1.tex" 1758751674 5157 b954e7a82273b47b139a746c1fad2e40 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1758025779 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1758025779 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1758026539 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -92,8 +91,9 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758029471 5574045 22848c10ad8b56b5f83684fbec0ec0d7 ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1758029563 3605808 7a4087a9e9e3a725d5975425d4e2ec77 ""
   "c:/texlive/2025/texmf.cnf" 1758029454 713 e69b156964470283e0530f5060668171 ""
-  "jeaa2104_jean_alexis_devoir_1.aux" 1758750951 1116 e78d101f9d3022837b6be9bf01fd4632 "pdflatex"
-  "jeaa2104_jean_alexis_devoir_1.tex" 1758750949 5030 d56ce2fce63e8f352641cfab895b3928 ""
+  "diagramme.png" 1758751647 35894 0b06c1faf11e0414f1946b6ca85d971f ""
+  "jeaa2104_jean_alexis_devoir_1.aux" 1758751676 1253 cee6727a665fa77432b7a4aa0dae962c "pdflatex"
+  "jeaa2104_jean_alexis_devoir_1.tex" 1758751674 5157 b954e7a82273b47b139a746c1fad2e40 ""
   (generated)
   "jeaa2104_jean_alexis_devoir_1.aux"
   "jeaa2104_jean_alexis_devoir_1.log"
