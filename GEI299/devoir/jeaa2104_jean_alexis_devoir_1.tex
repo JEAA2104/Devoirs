@@ -61,7 +61,7 @@
 
 
 \section{\underline{Introduction au contract}}
-Le client M. Scanner de la compagnie GE Healthcare souhaite explorer les possibilités de différents métaux pouvant être utilisés comme agent de contraste dans les images de résonance magnétique (IRM). La raison, l'agent de contraste en utilisation actuelle, le gadolinium, est trop toxique pour le client. Ce dernier requiert de notre expertise pour développer un logiciel pouvant sélectionner un candiat de remplaçement parmis différents critères qui seront mentionnés plus loin de le document.
+Le client M. Scanner de la compagnie GE Healthcare souhaite explorer les possibilités de différents métaux pouvant être utilisés comme agent de contraste dans les images de résonance magnétique (IRM). La raison, l'agent de contraste en utilisation actuelle, le gadolinium, est trop toxique pour le client. Ce dernier requiert de notre expertise pour développer un logiciel pouvant sélectionner un candiat de remplaçement parmis différents critères choisis par le client.
 
 
 \section{\underline{Éléments à inclure, contraintes et points à clarifier}}
@@ -114,9 +114,53 @@ Comme stipuler dans le contract du client, un diagramme des entrées et des sort
   \includegraphics[width=\linewidth]{diagramme.png}
   \caption{Diagramme entrées/sorties}
 \end{figure}
+\pagebreak
 
 
-\section{\underline{Aperçu de l'interface ddu logiciel}}
+\section{\underline{Aperçu de l'interface du logiciel}}
+Comme prévu dans l'entente avec le client, un aperçu de l'interface utilisateur du logiciel est fourni dans le cahier de spécification des exigences. Voici le dit interface :
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{interface.png}
+  \caption{Aperçu de l'interface du logiciel}
+\end{figure}
+
+\subsection{Légende de l'interface}
+Maintenant, toutes les fonctionnalités de l'interface seront décrites en allant de gauche à droite et de haut en bas :
+
+\begin{itemize}
+  \item Ajout métal : Ce bouton sert à ajouter un métal candidat pour la simulation
+  \item Supp. métal : Ce bouton sert à retirer un métal candidat de la simulation
+  \item Modif. métal : Ce bouton sert à modifier le métal candiat actuel par un autre candiat
+  \item Lancer simulation : Ce bouton sert à lancer la simulation
+  \item Mode scientifique : Ce bouton sert à passer en mode scientifique pour les résultats de la simulation
+  \item Mode affaire : Ce bouton sert à passer en mode affaire pour les résultats de la simulation
+  \item Exporter résultats : Ce bouton sert à exporter les résultats. Lorsque cliqué, un menu apparaît pour demander le format dans lequel les résultats seront exportés
+\end{itemize}
+\pagebreak
+
+
+\section{\underline{Attributs fonctionnels et non-fonctionnels}}
+Cette section traite des attributs fontionnels et non-fonctionnels du logiciel. Ces derniers seront émis sous forme de deux listes de puces. En permier lieu, les attributs fontionnels :
+
+\begin{itemize}
+  \item La gestion des métaux tel que l'ajout, la suprresion ou la modification avant de lancer la simulation
+  \item Le classement des métaux selon les différents critères choisis par la compagnie
+  \item La simulation quantique en soit, elle est initialisée par l'utilisateur
+  \item L'exportation des résultats sous différents formats
+\end{itemize}
+Ensuite, voici les attributs non-fonctionnles du logiciel :
+
+\begin{itemize}
+  \item La vitesse des calculs ainsi que le taux d'erreur par rapport à la référence classique
+  \item La sécurité avec la plateforme IBM quantique
+  \item La modularité du code du logiciel
+  \item La possibilité du logiciel de pouvoir être utilisé autant sur Windows que sur MacOS
+\end{itemize}
+
+
+\section{\underline{Besoins conflictuels}}
+e
 
 \end{document}
 
