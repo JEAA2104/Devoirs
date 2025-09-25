@@ -60,33 +60,33 @@
 \hrule
 
 
-\section{\underline{Introduction au contract}}
-Le client M. Scanner de la compagnie GE Healthcare souhaite explorer les possibilités de différents métaux pouvant être utilisés comme agent de contraste dans les images de résonance magnétique (IRM). La raison, l'agent de contraste en utilisation actuelle, le gadolinium, est trop toxique pour le client. Ce dernier requiert de notre expertise pour développer un logiciel pouvant sélectionner un candiat de remplaçement parmis différents critères choisis par le client.
+\section{\underline{Introduction au contrat}}
+Le client M. Scanner de la compagnie GE Healthcare souhaite explorer les possibilités de différents métaux pouvant être utilisés comme agent de contraste dans les images de résonance magnétique (IRM). La raison, l'agent de contraste en utilisation actuelle, le gadolinium, est trop toxique pour le client. Ce dernier requiert de notre expertise pour développer un logiciel pouvant sélectionner un candidat de remplacement parmi différents critères choisis par le client.
 
 
 \section{\underline{Éléments à inclure, contraintes et points à clarifier}}
 
 \subsection{Éléments à inclure}
-Dans la section qui suit, les éléments à inclure ainsi que les contraintes du client seront présentés sous forme de deux listes de puces. Selon les demandes du client, il nous faudra apporter les suivantes fonctionnalités comme nécessité au produit qui est demandé :
+Dans la section qui suit, les éléments à inclure ainsi que les contraintes du client seront présentés sous forme de deux listes de puces. Selon les demandes du client, il nous faudra apporter les fonctionnalités suivantes comme nécessité au produit qui est demandé :
 
 \begin{itemize}[label=\textbullet]
-  \item Une interface utilisateur simple et intuitive au couleur de GE Healthcare
-  \item Le logiciel doit permettre l'ajout, la modification et la supression de métaux de la base de données jugés comme candidats potentiels
-  \item Un module de simulation quantique (via la plateforme de IBM) doit être intégrée pour pouvoir calculer l’état fondamental et les propriétés électroniques des complexes métal-ligand
+  \item Une interface utilisateur simple et intuitive aux couleurs de GE Healthcare
+  \item Le logiciel doit permettre l'ajout, la modification et la suppression de métaux de la base de données jugés comme candidats potentiels
+  \item Un module de simulation quantique (via la plateforme de IBM) doit être intégré pour pouvoir calculer l’état fondamental et les propriétés électroniques des complexes métal-ligand
   \item Une façon de pouvoir comparer les différents candidats selon différents critères
   \item Avoir la possibilité de pouvoir exporter les résultats sous différents formats
   \item Le logiciel doit avoir deux modes : un mode scientifique et un mode affaires
 \end{itemize}
 
 \subsection{Contraintes}
-Le client a aussi des contraintes qui viennent avec sa demande qui se listent tel que :
+Le client a aussi des contraintes qui viennent avec sa demande qui se listent telles que :
 
 \begin{itemize}
-  \item Le logiciel doit compatible avec autant Windows que MacOS
-  \item Le temps de calcul pour un simulation standard doit être inférieur à 2 minutes et d'avoir un taux d'erreur inférieur à 2\%
+  \item Le logiciel doit être compatible avec autant Windows que MacOS
+  \item Le temps de calcul pour une simulation standard doit être inférieur à 2 minutes et d'avoir un taux d'erreur inférieur à 2\%
   \item Un langage et un framework maintenable avec une connexion sécurisée à la plateforme IBM Quantum pour l’exécution des calculs sont nécessaires
   \item Le budget maximal permis est de 200 000\$ qui couvre le matériel quantique, les ressources humaines ainsi que le matériel
-  \item Le produit final doit être livré au bout de 2 mentionnés
+  \item Le produit final doit être livré au bout de 2 mois mentionnés
   \item Le code doit être modulaire pour des ajouts et doit posséder un plan de maintenance sur 12 mois
 \end{itemize}
 
@@ -102,13 +102,13 @@ Voici un exemple de réponse possible pour chaque question :
 
 \begin{itemize}
   \item Le mode scientifique doit apporter des graphiques, des calculs complets ainsi qu'un rapport complet de chaque simulation
-  \item Les références classqieus se trouve dans l'échantillon en pièce jointe dans le matériel du projet
-  \item Une terface desktop sera préférée pour aider à la sécurisation des résultats directement sur les machines de la compagnie
+  \item Les références classiques se trouvent dans l'échantillon en pièce jointe dans le matériel du projet
+  \item Une interface desktop sera préférée pour aider à la sécurisation des résultats directement sur les machines de la compagnie
 \end{itemize}
 
 
 \section{\underline{Diagramme d'entrées/sorties du logiciel}}
-Comme stipuler dans le contract du client, un diagramme des entrées et des sorties est demandé. Voici alors le diagramme :
+Comme stipulé dans le contrat du client, un diagramme des entrées et des sorties est demandé. Voici alors le diagramme :
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{diagramme.png}
@@ -118,7 +118,7 @@ Comme stipuler dans le contract du client, un diagramme des entrées et des sort
 
 
 \section{\underline{Aperçu de l'interface du logiciel}}
-Comme prévu dans l'entente avec le client, un aperçu de l'interface utilisateur du logiciel est fourni dans le cahier de spécification des exigences. Voici le dit interface :
+Comme prévu dans l'entente avec le client, un aperçu de l'interface utilisateur du logiciel est fourni dans le cahier de spécification des exigences. Voici la dite interface :
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{interface.png}
@@ -131,7 +131,7 @@ Maintenant, toutes les fonctionnalités de l'interface seront décrites en allan
 \begin{itemize}
   \item Ajout métal : Ce bouton sert à ajouter un métal candidat pour la simulation
   \item Supp. métal : Ce bouton sert à retirer un métal candidat de la simulation
-  \item Modif. métal : Ce bouton sert à modifier le métal candiat actuel par un autre candiat
+  \item Modif. métal : Ce bouton sert à modifier le métal candidat actuel par un autre candidat
   \item Lancer simulation : Ce bouton sert à lancer la simulation
   \item Mode scientifique : Ce bouton sert à passer en mode scientifique pour les résultats de la simulation
   \item Mode affaire : Ce bouton sert à passer en mode affaire pour les résultats de la simulation
@@ -141,15 +141,15 @@ Maintenant, toutes les fonctionnalités de l'interface seront décrites en allan
 
 
 \section{\underline{Attributs fonctionnels et non-fonctionnels}}
-Cette section traite des attributs fontionnels et non-fonctionnels du logiciel. Ces derniers seront émis sous forme de deux listes de puces. En permier lieu, les attributs fontionnels :
+Cette section traite des attributs fonctionnels et non-fonctionnels du logiciel. Ces derniers seront émis sous forme de deux listes de puces. En premier lieu, les attributs fonctionnels :
 
 \begin{itemize}
-  \item La gestion des métaux tel que l'ajout, la suprresion ou la modification avant de lancer la simulation
+  \item La gestion des métaux tel que l'ajout, la suppression ou la modification avant de lancer la simulation
   \item Le classement des métaux selon les différents critères choisis par la compagnie
   \item La simulation quantique en soit, elle est initialisée par l'utilisateur
   \item L'exportation des résultats sous différents formats
 \end{itemize}
-Ensuite, voici les attributs non-fonctionnles du logiciel :
+Ensuite, voici les attributs non-fonctionnels du logiciel :
 
 \begin{itemize}
   \item La vitesse des calculs ainsi que le taux d'erreur par rapport à la référence classique
@@ -160,7 +160,29 @@ Ensuite, voici les attributs non-fonctionnles du logiciel :
 
 
 \section{\underline{Besoins conflictuels}}
-e
+Les besoins conflictuels seront identifiés à l'aide d'une matrice de corrélation, puis, elle sera suivi par un court texte qui identifie où se trouve les corrélations.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.5]{matriceCorrelation.png}
+  \caption{Aperçu de l'interface du logiciel}
+\end{figure}
+Si la vitesse est priorisée, la précision sera sacrifiée pour que le temps de calcul soit moins cher sur la plateforme de IBM. Pour la précision, si elle est priorisée, alors il va nécessairement falloir que le temps de calcul soit plus long et donc, que cela coûte plus cher d'utilisation.
+\pagebreak
+
+
+\section{\underline{Ébauche du manuel d'utilisation}}
+En premier lieu, l'utilisateur ouvre le logiciel et arrive sur l'interface illustrée plus tôt. Il va sélectionner un métal parmi la base de données de la compagnie ainsi qu'un ligand en même temps. En deuxième lieu, une fois que tout a été choisi pour une simulation, l'utilisateur va lancer la simulation à l'aide du bouton approprié, puis, il patiente le temps que la simulation se fait sur la plateforme de IBM. Une fois que la simulation est terminée, l'utilisateur choisit le mode qui lui convient et exporte les résultats dans le format de son choix.
+
+
+\section{\underline{Énoncé du problème}}
+
+\begin{itemize}
+  \item \underline{Contexte}\\Dans les IRM, des agents de contrastes sont utilisés, cependant, ils sont à base de gadolinium qui est toxique. Le client : GE Healthcare souhaite trouver des alternatives qui soient sûres pour les patients
+  \item \underline{Ce que doit être la conception}\\Un logiciel facile d'utilisation et précis capable de faire des simulations quantiques sur la plateforme d'IBM et de comparer des métaux candidats. Le coût ne doit pas dépasser 200 000\$ et doit être livré en 2 mois.
+  \item \underline{Livrables}\\Un logiciel étant compatible avec Windows et MacOS et associé avec ce dernier : un rapport technique, un cahier Jupyter ainsi qu'une présentation destinée aux hauts-dirigeants de la compagnie
+\end{itemize}
+
 
 \end{document}
 
