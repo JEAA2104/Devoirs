@@ -21,6 +21,19 @@
 \usepackage{braket}
 
 \usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
+text centered, draw=black, fill=blue!10]
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
+text centered, draw=black, fill=green!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
+\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
 \renewcommand\lstlistingname{Code Python}
 
 \lstset{frame=tb,

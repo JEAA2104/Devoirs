@@ -21,6 +21,20 @@
 \usepackage{braket}
 
 \usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
+text centered, draw=black, fill=blue!10]
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
+text centered, draw=black, fill=green!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
+\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
+
 \renewcommand\lstlistingname{Code Python}
 
 \lstset{frame=tb,
@@ -54,15 +68,79 @@
   {\Large GEI299 - Gestion de projet} \\ \vspace{5mm}
   {\LARGE\sffamily Devoir 2} \\
   Alexis Jean \\
-  À remettre le 9 octobre
+  À remettre le 23 octobre
 \end{center}
 
 \hrule
 
 
-\section{\underline{}}
+\section{\underline{Introduction}}
+L'objectif de ce document est de décrire le cahier de conception du logiciel à l'étude. Voyons un petit rappel de notre contrat : GE Healthcare nous demande de de créer un logiciel de simulation quantique pour pouvoir trouver un métal moins toxique que le gadolinium pour les radiographies. Le logiciel doit permettre à l'utilisateur de choisir entre deux modes : un mode scientifique pour les chercheurs et un mode affaire pour les décideurs. Le logiciel doit se connecter à la plateforme IBM Quantum pour effectuer les simulations et doit inclure un module d'analyse multi-critères pour évaluer les résultats en fonction de divers paramètres tels que le coût, la durabilité et la performance.
+\paragraph{}
 
-\subsection{}
+
+\section{\underline{Diagrammes de la conception}}
+
+\subsection{Diagramme conceptuel}
+Voici ici le diagramme conceptuel de notre logiciel de simulation quantique :
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[node distance=1.8cm]
+
+\node (user) [io] {Utilisateur (Scientifique / Affaire)};
+\node (ui) [block, below of=user] {Interface Utilisateur Graphique};
+\node (sim) [process, below of=ui] {Moteur de Simulation Quantique (IBM Quantum)};
+\node (analysis) [block, below of=sim] {Module d’Analyse Multi-critères};
+\node (export) [process, below of=analysis] {Visualisation et Exportation des Résultats};
+
+\draw [arrow] (user) -- node[right]{Entrée du choix de mode} (ui);
+\draw [arrow] (ui) -- node[right]{Entrée des données pour la simulation} (sim);
+\draw [arrow] (sim) -- node[right]{Résultats de la simulation} (analysis);
+\draw [arrow] (analysis) -- node[right]{Classement et évaluation} (export);
+
+\end{tikzpicture}
+\caption{Diagramme conceptuel du logiciel de simulation quantique.}
+\end{figure}
+
+\textbf{Légende :}
+\begin{itemize}
+    \item \textbf{Trapezium orange} : Utilisateur
+    \item \textbf{Bloc bleu} : interface ou traitement interne du système
+    \item \textbf{Bloc vert} : processus de calcul ou module logiciel
+    \item \textbf{Flèches} : flux de données ou d’information
+\end{itemize}
+
+\pagebreak
+
+\subsection{Schéma bloc}
+Voici ici le schéma bloc de notre logiciel de simulation quantique :
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[node distance=1.8cm]
+
+\node (ui) [block] {Interface Utilisateur};
+\node (proc) [process, below of=ui] {Module de Traitement et Connexion IBM Quantum};
+\node (db) [block, below of=proc] {Base de Données Interne};
+\node (analysis) [process, below of=db] {Analyse Multi-Critères};
+\node (export) [block, below of=analysis] {Module d’Exportation et Visualisation};
+
+\draw [arrow] (ui) -- node[right]{Entrées utilisateur} (proc);
+\draw [arrow] (proc) -- node[right]{Résultats bruts de simulation} (db);
+\draw [arrow] (db) -- node[right]{Données structurées} (analysis);
+\draw [arrow] (analysis) -- node[right]{Scores et classements} (export);
+
+\end{tikzpicture}
+\caption{Schéma bloc fonctionnel du système logiciel.}
+\end{figure}
+
+\textbf{Légende :}
+\begin{itemize}
+    \item \textbf{Bloc bleu} : composant logiciel principal
+    \item \textbf{Bloc vert} : module de calcul ou de traitement
+    \item \textbf{Flèches} : circulation des données entre modules
+\end{itemize}
 
 
 \end{document}
