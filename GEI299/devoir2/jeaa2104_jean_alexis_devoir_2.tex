@@ -77,7 +77,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 \section{\underline{Introduction}}
 L'objectif de ce document est de décrire le cahier de conception du logiciel à l'étude. Voyons un petit rappel de notre contrat : GE Healthcare nous demande de de créer un logiciel de simulation quantique pour pouvoir trouver un métal moins toxique que le gadolinium pour les radiographies. Le logiciel doit permettre à l'utilisateur de choisir entre deux modes : un mode scientifique pour les chercheurs et un mode affaire pour les décideurs. Le logiciel doit se connecter à la plateforme IBM Quantum pour effectuer les simulations et doit inclure un module d'analyse multi-critères pour évaluer les résultats en fonction de divers paramètres tels que le coût, la durabilité et la performance.
 \paragraph{}
-
+Rappelons aussi la portée du projet où nous devons livrer une version prototype ayant la possibilité d'être améliroré, donc que le prototype soit fait de façon modulaire. Égalment, il faut que le logiciel puisse être multiplateforme soit Windows et MacOS.
 
 \section{\underline{Diagrammes de la conception}}
 
@@ -103,6 +103,8 @@ Voici ici le diagramme conceptuel de notre logiciel de simulation quantique :
 \caption{Diagramme conceptuel du logiciel de simulation quantique.}
 \end{figure}
 
+\newpage
+
 \textbf{Légende :}
 \begin{itemize}
     \item \textbf{Trapezium orange} : Utilisateur
@@ -111,7 +113,15 @@ Voici ici le diagramme conceptuel de notre logiciel de simulation quantique :
     \item \textbf{Flèches} : flux de données ou d’information
 \end{itemize}
 
-\pagebreak
+Maintenant, nous pouvons faire une brève description des différents composants du diagramme conceptuel :
+\begin{itemize}
+  \item \textbf{Utilisateur (Scientifique / Affaire)} : L'utilisateur peut choisir entre deux modes d'utilisation du logiciel, soit le mode scientifique pour les chercheurs ou le mode affaire pour les décideurs.
+  \item \textbf{Interface Utilisateur Graphique} : Permet à l'utilisateur de sélectionner le mode d'utilisation et d'entrer les données nécessaires pour la simulation.
+  \item \textbf{Moteur de Simulation Quantique (IBM Quantum)} : Se connecte à la plateforme IBM Quantum pour exécuter les simulations basées sur les données fournies par l'utilisateur.
+  \item \textbf{Module d’Analyse Multi-critères} : Analyse les résultats de la simulation en fonction de divers critères tels que le coût, la durabilité et la performance et classe les différents candidats dans une base de données.
+  \item \textbf{Visualisation et Exportation des Résultats} : Présente les résultats de l'analyse à l'utilisateur de manière claire et permet l'exportation des données pour une utilisation ultérieure.
+\end{itemize}
+
 
 \subsection{Schéma bloc}
 Voici ici le schéma bloc de notre logiciel de simulation quantique :
