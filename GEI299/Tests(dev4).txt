@@ -1,0 +1,8 @@
+Plan des tests : (tableau possible)
+
+	- Qui fait le test ?
+	- Où ?
+	- Qui les valides ?
+	- Que fait le test ?
+	- Test Intégrateur ou validation système
+	- C'est quoi son critère de validation ?
