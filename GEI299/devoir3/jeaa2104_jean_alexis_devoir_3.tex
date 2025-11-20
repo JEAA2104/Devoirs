@@ -23,7 +23,7 @@
 \usepackage{listings}
 
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
 
 \tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
 text centered, draw=black, fill=blue!10]
@@ -75,10 +75,189 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 \tableofcontents
 
-\section{\underline{Introduction}}
+
+\section{\underline{Structure organisationnelle du projet}}
+Dans cette section, on présente la hiérarchie de l'équipe dans le cadre du projet. Le diagramme suivant décrit la dite structure :
+
+\subsection{Schéma de la hiérarchie}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+
+    \node (client) [block] {GE Healthcare};
+    \node (chef) [block] [below of=client]{Chef de projet};
+    \node (inge) [block] [below of=chef, xshift=0cm] {Ingénieur logiciel};
+    \node (fin) [block, below of=chef, xshift=-4cm] {Chargé financier};
+    \node (log) [block, below of=chef, xshift=4cm] {Logistique};
+    
+    \tikzset{smallblock/.style={block, minimum width=2cm, minimum height=0.8cm, font=\small}}
+    
+    \node (elog) [smallblock, below of=inge, xshift=-6.5cm] {Équipe logiciel};
+    \node (eelec) [smallblock, below of=inge, xshift=-3.5cm] {Équipe électronique};
+    \node (etest) [smallblock, below of=inge, xshift=7.25cm] {Équipe test \& calibration};
+    \node (esci) [smallblock, below of=inge, xshift=3.5cm] {Équipe scientifique};
+    \node (edoc) [smallblock, below of=fin, xshift=4cm] {Équipe documentation};
+    
+    \draw [arrow] (client) -- (chef);
+    \draw [arrow] (chef) -- (inge);
+    \draw [arrow] (chef) -- (fin);
+    \draw [arrow] (chef) -- (log);
+    \draw [arrow] (inge) -- (elog);
+    \draw [arrow] (inge) -- (eelec);
+    \draw [arrow] (inge) -- (etest);
+    \draw [arrow] (inge) -- (esci);
+    \draw [arrow] (inge) -- (edoc);
+
+  \end{tikzpicture}
+  \caption{Structure organisationnelle du projet}
+\end{figure}
+
+\subsection{Description des rôles}
+
+\begin{itemize}
+  \item \textbf{Client} : GE Healthcare est le client principal du projet. Ils fournissent les exigences et les ressources nécessaires pour le développement du logiciel.
+  \item \textbf{Chef de projet} : Responsable de la planification, de l'exécution et de la clôture du projet. Il coordonne les différentes équipes et assure la communication avec le client.
+  \item \textbf{Ingénieur logiciel} : Supervise le développement logiciel, s'assure que les exigences techniques sont respectées et coordonne les équipes techniques.
+  \item \textbf{Chargé financier} : Gère le budget du projet, surveille les dépenses et s'assure que le projet reste financièrement viable.
+  \item \textbf{Logistique} : Responsable de la gestion des ressources matérielles, de l'approvisionnement et de la distribution des équipements nécessaires au projet.
+  \item \textbf{Équipes spécialisées} : Chaque équipe (logiciel, électronique, test \& calibration, scientifique, documentation) est responsable de ses tâches spécifiques dans le cadre du projet.
+\end{itemize}
 
 
-\subsection{}
+\section{\underline{Répartition des rôles et responsabilités}}
+Dans la section qui suit, on décrit les rôles ainsi que les responsabilitées de chaque entité de la hiérarchie illustrée plus tôt.
+
+\begin{itemize}
+  \item \textbf{Client (GE Healthcare)} :
+    \begin{itemize}
+      \item Fournir les exigences du projet.
+      \item Valider les livrables.
+      \item Offrir un soutien financier et logistique.
+    \end{itemize}
+  \item \textbf{Chef de projet} :
+    \begin{itemize}
+      \item Planifier et organiser les activités du projet.
+      \item Gérer les ressources humaines et matérielles.
+      \item Assurer la communication entre les équipes et le client.
+      \item Suivre l'avancement du projet et gérer les risques.
+    \end{itemize}
+  \item \textbf{Ingénieur logiciel} :
+    \begin{itemize}
+      \item Superviser le développement technique du logiciel.
+      \item Assurer la conformité aux normes de qualité.
+      \item Coordonner les efforts des équipes techniques.
+    \end{itemize}
+  \item \textbf{Chargé financier} :
+    \begin{itemize}
+      \item Élaborer et gérer le budget du projet.
+      \item Surveiller les coûts et les dépenses.
+      \item Préparer des rapports financiers pour le chef de projet.
+    \end{itemize}
+  \item \textbf{Logistique} :
+    \begin{itemize}
+      \item Gérer l'approvisionnement en matériel et équipements.
+      \item Coordonner la distribution des ressources aux équipes.
+      \item Assurer la maintenance des équipements utilisés dans le projet.
+    \end{itemize}
+  \item \textbf{Équipes spécialisées} :
+    \begin{itemize}
+      \item Chaque équipe est responsable de la réalisation de ses tâches spécifiques, telles que le développement logiciel, la conception électronique, les tests et calibrations, la recherche scientifique, et la documentation technique.
+    \end{itemize}
+\end{itemize}
+
+
+\section{\underline{Planification du travail}}
+Cette section traite de la planification du travail avec un diagramme réseau AON ainsi qu'un diagramme de Gantt illustrant les différentes tâches, leurs dépendances, et la durée estimée pour chaque tâche.
+
+\subsection{Schéma réseau AON}
+On présente ici le diagramme réseau AON sur la page suivante avec la légende des tâches et leur durée respective.
+
+\begin{itemize}
+  \item T1 : Dépendances (1 semaine)
+  \item T2 : Architecture (1 semaine)
+  \item T3 : Design de l'interface (1 semaine)
+  \item T5 : Schématisation (2 semaines)
+  \item T9 : Assemblage (1 semaine)
+  \item T10 : Tests unitaires (1 semaine)
+  \item T11 : Intégration (2 semaines)
+  \item T12 : Calibration (1 semaine)
+  \item T13 : Validation et tests finaux (1 semaine)
+  \item T14a : Brouillon documentation (1 semaine)
+  \item T14b : Documentation finale (1 semaine)
+  \item T15 : Projet rendu (1 semaine)
+  \item Rouge : Tâches critiques
+  \item Bleu : Tâches non critiques
+\end{itemize}
+
+\newpage 
+
+\begin{tikzpicture}[node distance=18mm and 12mm, >=Latex]
+  \tikzset{
+    task/.style={rectangle, draw=black, rounded corners=4pt, fill=blue!6, inner sep=6pt, align=center, font=\small},
+    taskcrit/.style={rectangle, draw=red!80, rounded corners=4pt, fill=red!6, inner sep=6pt, align=center, font=\small},
+    arrow/.style={-Stealth, thick}
+  }
+
+  % niveau 1
+  \node[taskcrit] (T1) {T1\\Dépendances\\(1s)};
+
+  % niveau 2
+  \node[taskcrit, below=of T1] (T2a) {T2a\\Architecture\\(1s)};
+  \node[task, right=14mm of T1, xshift=8cm] (T2b) {T2b\\Design de l'interface\\(1s)};
+
+  % niveau 3
+  \node[taskcrit, below=of T2a] (T3) {T3\\Schématisation\\(2s)};
+  \node[task, below=of T2b] (T9a) {T9a\\Brouillion docu\\(1s)};
+
+  % niveau 4
+  \node[taskcrit, below=of T3, xshift=8cm] (T5) {T5\\Tests unitaires\\(1s)};
+  \node[taskcrit, below=of T3] (T4) {T4\\Assemblage\\(1s)};
+
+  % niveau 5 - intégration
+  \node[taskcrit] (T6) at ($(T4)!0.5!(T5)$) {T6\\Intégration\\(2s)};
+  \node[taskcrit, below=of T6] (T7) {T7\\Calibration\\(1s)};
+  \node[taskcrit, below=of T7] (T8) {T8\\Validation et test finaux\\(1s)};
+
+  % docs final + livraison
+  \node[taskcrit, right=of T8, xshift=26mm] (T9b) {T9b\\Docu finale\\(1s)};
+  \node[taskcrit, below=of T8, xshift=20mm] (T10) {T10\\Projet rendu\\(1s)};
+
+  \draw[arrow] (T1) -- (T2a);
+  \draw[arrow] (T1) -- (T2b);
+
+  \draw[arrow] (T2a) -- (T3);
+
+  
+  \draw [arrow] (T3) -- (T4);
+  \draw[arrow] (T3) -- (T5);
+
+  \draw[arrow] (T4) -- (T6);
+  \draw[arrow] (T5) -- (T6);
+
+  \draw[arrow] (T6) -- (T7);
+  \draw[arrow] (T7) -- (T8);
+
+  \draw[arrow] (T8) -- (T9b);
+  \draw[arrow] (T9b) -- (T10);
+  \draw[arrow] (T8) -- (T10);
+
+  \draw[arrow,dashed] (T2b) -- (T9a);
+  \draw[arrow,dashed] (T9a) -- (T9b);
+
+\end{tikzpicture}
+
+\newpage
+
+\subsection{Diagramme de Gantt}
+Dans cette section, on présente la planification du porjet sous la forme de diagramme de Gantt.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{gantt.png}
+  \caption{Diagramme de Gantt du projet}
+\end{figure}
+
+\section{\underline{Évaluation et gestion des coûts}}
 
 
 \end{document}

@@ -1,3 +1,9 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}\underline {Introduction}}{1}{}%
-\contentsline {subsection}{\numberline {1.1}}{1}{}%
+\contentsline {section}{\numberline {1}\underline {Structure organisationnelle du projet}}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Schéma de la hiérarchie}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Description des rôles}{2}{}%
+\contentsline {section}{\numberline {2}\underline {Répartition des rôles et responsabilités}}{2}{}%
+\contentsline {section}{\numberline {3}\underline {Planification du travail}}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Schéma réseau AON}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Diagramme de Gantt}{5}{}%
+\contentsline {section}{\numberline {4}\underline {Évaluation et gestion des coûts}}{5}{}%
