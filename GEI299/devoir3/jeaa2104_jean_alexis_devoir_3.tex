@@ -75,9 +75,20 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 \tableofcontents
 
+\hrule
+
+\section{\underline{Introduction}}
+La compagnie GE Healthcare a mandaté notre équipe pour le développement d'un logiciel visant à trouver de meilleurs candidats que le gadolinium dans le cadre de l'imagerie par résonance magnétique (IRM). Le but principal du projet est de concevoir un logiciel capable d'analyser et de comparer différents composés chimiques afin d'identifier ceux qui pourraient servir d'agents de contraste plus efficaces et plus sûrs que le gadolinium actuellement utilisé.
+
+
+\section{\underline{Survol du projet}}
+Le projet consiste à développer un logiciel pour effectuer des simulations quantiques dans le but de simuler les états fondamentaux ainsi que les propriétés électroniques des différents candidats possibles. Les livrables sont un rapport technique, un cahier Jupyter ainsi qu'une présentation de haut niveau pour des gens d'affaires. Le tout doit être livré au bout de 2 mois avec un budget d'au plus 200 000\$ CAD.
+
 
 \section{\underline{Structure organisationnelle du projet}}
 Dans cette section, on présente la hiérarchie de l'équipe dans le cadre du projet. Le diagramme suivant décrit la dite structure :
+
+\newpage
 
 \subsection{Schéma de la hiérarchie}
 
@@ -124,9 +135,10 @@ Dans cette section, on présente la hiérarchie de l'équipe dans le cadre du pr
   \item \textbf{Équipes spécialisées} : Chaque équipe (logiciel, électronique, test \& calibration, scientifique, documentation) est responsable de ses tâches spécifiques dans le cadre du projet.
 \end{itemize}
 
+\newpage
 
 \section{\underline{Répartition des rôles et responsabilités}}
-Dans la section qui suit, on décrit les rôles ainsi que les responsabilitées de chaque entité de la hiérarchie illustrée plus tôt.
+Dans la section qui suit, on décrit les rôles ainsi que les responsabilités de chaque entité de la hiérarchie illustrée plus tôt.
 
 \begin{itemize}
   \item \textbf{Client (GE Healthcare)} :
@@ -166,12 +178,13 @@ Dans la section qui suit, on décrit les rôles ainsi que les responsabilitées 
     \end{itemize}
 \end{itemize}
 
+\newpage
 
 \section{\underline{Planification du travail}}
 Cette section traite de la planification du travail avec un diagramme réseau AON ainsi qu'un diagramme de Gantt illustrant les différentes tâches, leurs dépendances, et la durée estimée pour chaque tâche.
 
 \subsection{Schéma réseau AON}
-On présente ici le diagramme réseau AON sur la page suivante avec la légende des tâches et leur durée respective.
+On présente ici le diagramme réseau AON sur la page suivante avec la légende des tâches et leur durée respective. Les détails de chaque tâche sont fournis après les diagrammes.
 
 \begin{itemize}
   \item T1 : Dépendances (1 semaine)
@@ -204,11 +217,11 @@ On présente ici le diagramme réseau AON sur la page suivante avec la légende 
 
   % niveau 2
   \node[taskcrit, below=of T1] (T2a) {T2a\\Architecture\\(1s)};
-  \node[task, right=14mm of T1, xshift=8cm] (T2b) {T2b\\Design de l'interface\\(1s)};
+  \node[task, right=14mm of T1, xshift=6.6cm] (T2b) {T2b\\Design de l'interface\\(1s)};
 
   % niveau 3
   \node[taskcrit, below=of T2a] (T3) {T3\\Schématisation\\(2s)};
-  \node[task, below=of T2b] (T9a) {T9a\\Brouillion docu\\(1s)};
+  \node[task, below=of T2b] (T9a) {T9a\\Brouillon docu\\(1s)};
 
   % niveau 4
   \node[taskcrit, below=of T3, xshift=8cm] (T5) {T5\\Tests unitaires\\(1s)};
@@ -217,7 +230,7 @@ On présente ici le diagramme réseau AON sur la page suivante avec la légende 
   % niveau 5 - intégration
   \node[taskcrit] (T6) at ($(T4)!0.5!(T5)$) {T6\\Intégration\\(2s)};
   \node[taskcrit, below=of T6] (T7) {T7\\Calibration\\(1s)};
-  \node[taskcrit, below=of T7] (T8) {T8\\Validation et test finaux\\(1s)};
+  \node[taskcrit, below=of T7] (T8) {T8\\Validation et tests finaux\\(1s)};
 
   % docs final + livraison
   \node[taskcrit, right=of T8, xshift=26mm] (T9b) {T9b\\Docu finale\\(1s)};
@@ -250,14 +263,77 @@ On présente ici le diagramme réseau AON sur la page suivante avec la légende 
 \newpage
 
 \subsection{Diagramme de Gantt}
-Dans cette section, on présente la planification du porjet sous la forme de diagramme de Gantt.
+Dans cette section, on présente la planification du projet sous la forme de diagramme de Gantt.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{gantt.png}
   \caption{Diagramme de Gantt du projet}
 \end{figure}
 
+\begin{itemize}
+  \item \textbf{T1 Dépendances :} Il s'agit de la première tâche du projet, qui consiste à identifier et analyser les dépendances entre les différentes tâches et ressources nécessaires pour mener à bien le projet.
+  \item \textbf{T2a Architecture :} L'ingénieur logiciel conçoit le plan de l'architecture du logiciel, en d'autres mots, comment chaque partie du logiciel va interagir.
+  \item \textbf{T2b Design de l'interface :} Cette tâche consiste à créer le design de l'interface utilisateur du logiciel, en s'assurant qu'elle soit intuitive et facile à utiliser.
+  \item \textbf{T3 Schématisation :} Cette tâche implique la création de schémas détaillés du logiciel, y compris les diagrammes de flux de données et les diagrammes de structure.
+  \item \textbf{T4 Assemblage :} Cette tâche consiste à assembler les différentes parties du logiciel, en intégrant les modules développés par les différentes équipes.
+  \item \textbf{T5 Tests unitaires :} Chaque module du logiciel est testé individuellement pour s'assurer qu'il fonctionne correctement.
+  \item \textbf{T6 Intégration :} Les modules testés sont intégrés ensemble pour former le logiciel.
+  \item \textbf{T7 Calibration :} Le logiciel est calibré pour s'assurer qu'il fonctionne correctement avec les différents candidats.
+  \item \textbf{T8 Validation et tests finaux :} Le logiciel est soumis à des tests finaux pour valider son bon fonctionnement et sa conformité aux exigences du client.
+  \item \textbf{T9a Brouillon documentation :} Un brouillon de la documentation technique du logiciel est créé, incluant les instructions d'utilisation et les spécifications techniques.
+  \item \textbf{T9b Documentation finale :} La documentation technique est finalisée et prête à être livrée avec le logiciel.
+  \item \textbf{T10 Projet rendu :} Le projet est officiellement rendu au client, ayant le logiciel ainsi que les livrables prévus.
+\end{itemize}
+
+
+\newpage
+
 \section{\underline{Évaluation et gestion des coûts}}
+La gestion du budget est proposée par ce tableau qui illustre les coûts estimés pour chaque mois du projet, répartis en trois catégories principales : personnel, services et dépenses diverses et ce, sur une période de 4 mois en accord avec la planification du travail comme identifié plus tôt.
+
+\begin{table}[h!]
+\centering
+\caption{Évaluation des coûts du projet pour chaque mois}
+\resizebox{\textwidth}{!}{\begin{tabular}{lcccccccc}
+\hline
+ & \multicolumn{2}{c}{Août} & \multicolumn{2}{c}{Septembre} 
+ & \multicolumn{2}{c}{Octobre} & \multicolumn{2}{c}{Novembre} \\
+ & Jours/Min & k\$ & Jours/Min & k\$ & Jours/Min & k\$ & Jours/Min & k\$ \\
+\hline
+\textbf{Personnel} \\
+Stagiaires (2)                  & -- & 2.25 & -- & 2.25 & -- & 2.25 & -- & 2.25 \\
+Chimiste (1000/jour)            & 4  & 4.0  & 5  & 5.0  & 4  & 4.0  & 2  & 2.0 \\
+Personnel de recherche          & 3  & 3.0  & 3  & 3.0  & 2  & 2.0  & 2  & 2.0 \\
+\textit{Sous-total}             &    & \textbf{9.25} 
+                                &    & \textbf{10.25} 
+                                &    & \textbf{8.25} 
+                                &    & \textbf{6.25} \\
+\\
+\textbf{Services} \\
+Accès IBM Quantum (48/min)      & 300 & 14.4 & 400 & 19.2 & 300 & 14.4 & 200 & 9.6 \\
+Bureau de dessin (300/jour)     & 2   & 0.6  & 2   & 0.6  & 1   & 0.3  & --  & 0.0 \\
+Atelier prototype (350/jour)    & --  & 0.0  & 4   & 1.4  & 4   & 1.4  & 2   & 0.7 \\
+\textit{Sous-total}             &     & \textbf{15.0}
+                                &     & \textbf{21.2}
+                                &     & \textbf{16.1}
+                                &     & \textbf{10.3} \\
+\\
+\textbf{Dépenses} \\
+Matériaux                       & -- & 2.0 & -- & 1.5 & -- & 1.0 & -- & 0.5 \\
+Autres                          & -- & 1.0 & -- & 0.5 & -- & 0.3 & -- & 0.2 \\
+\textit{Sous-total}             &    & \textbf{3.0}
+                                &    & \textbf{2.0}
+                                &    & \textbf{1.3}
+                                &    & \textbf{0.7} \\
+\hline
+\textbf{TOTAL}                  &    & \textbf{27.25}
+                                &    & \textbf{33.45}
+                                &    & \textbf{25.65}
+                                &    & \textbf{17.25} \\
+\hline
+\end{tabular}}
+\end{table}
+
 
 
 \end{document}
