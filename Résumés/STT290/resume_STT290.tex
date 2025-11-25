@@ -93,9 +93,6 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $Var(X) = \int_{-\infty}^{\infty} (x - E(X))^2 f(x) dx$ \\
 
 
-  \section{\underline{Variables uniformes et beta}}
-
-
   \textbf{Variable aléatoire uniforme continue :} Une variable aléatoire $X$ est dite uniforme continue sur l'intervalle $[a, b]$ si sa fonction de densité est donnée par : \\
   \[
   f(x) =
@@ -171,7 +168,52 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $E(X) = \dfrac{\gamma}{\lambda}$ \\
   $Var(X) = \dfrac{\gamma}{\lambda^2}$ \\
 
-  \textbf{Variable de Weibull :} 
+  \textbf{Variable de Weibull :} Une variable aléatoire $X$ suit la loi de Weibull si sa fonction de répartition est donnée par : \\
+  \[
+  F(x) = 
+  \begin{cases}
+    1 - e^{-(\dfrac{x-\upsilon}{\alpha})^\beta} & \text{si } x \geq \upsilon, \\
+    0 & \text{sinon}
+  \end{cases}
+  \] \\
+  où $\alpha, \beta > 0$ et $-\infty < \upsilon < +\infty$. \\ 
+
+  La fonction de densité est donnée par : \\
+  \[
+  f(x) =
+  \begin{cases}
+    \dfrac{\beta}{\alpha} \left( \dfrac{x-\upsilon}{\alpha} \right)^{\beta-1} e^{-(\dfrac{x-\upsilon}{\alpha})^\beta} & \text{si } x \geq \upsilon, \\
+    0 & \text{sinon}
+  \end{cases}
+  \]
+
+  $E(X) = \alpha \Gamma(\dfrac{1}{\beta} + 1)$ \\
+  $Var(X) = \alpha^2 \Gamma(\dfrac{2}{\beta} + 1) - \alpha^2 \Gamma^2(\dfrac{1}{\beta} + 1)$ \\
+
+
+  \textbf{Variable Laplace :} Une variable aléatoire $X$ suit la loi de Laplace si sa fonction de densité est donnée par : \\
+  $f(x) =\dfrac{1}{2\sigma} e^{-\dfrac{|x - \mu|}{\sigma}}$ \\
+  où $\mu \epsilon \mathbb{R}$ et $\sigma > 0$. \\
+  La fonction de répartition est : \\
+  \[
+  F(x) =
+  \begin{cases}
+    \dfrac{1}{2} e^{\dfrac{x - \mu}{\sigma}} & \text{si } x < \mu, \\
+    1 - \dfrac{1}{2} e^{-\dfrac{x - \mu}{\sigma}} & \text{si } x \geq \mu
+  \end{cases}
+  \] \\
+  $E(X) = \mu$ \\
+  $Var(X) = 2\sigma^2$ \\
+
+
+  \textbf{Variable normale (Gaussienne) :} Une variable aléatoire $X$ suit la loi normale si sa fonction de densité est donnée par : \\
+  $f(x) = \dfrac{1}{\sigma \sqrt{2\pi}} e^{-\dfrac{1}{2} \left( \dfrac{x - \mu}{\sigma} \right)^2}$ \\
+  où $\mu \epsilon \mathbb{R}$ et $\sigma > 0$. On note $X~\sim N(\mu, \sigma^2)$. \\
+  La fonction de répartition est : \\
+  $F(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^{x} e^{-\dfrac{(t - \mu)^2}{2\sigma^2}} dt$ \\
+  $E(X) = \mu$ \\
+  $Var(X) = \sigma^2$ \\
+
 
 
 
