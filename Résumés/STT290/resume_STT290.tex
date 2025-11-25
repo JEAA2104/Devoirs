@@ -1,5 +1,7 @@
 \documentclass[11pt]{article}
 
+\usepackage{multicol}
+
 \usepackage[french, english]{babel}
 
 \usepackage[T1]{fontenc}
@@ -62,21 +64,125 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 %\renewcommand*{\contentsname}{Table des matières}
 
-\hrule
+%\hrule
 
-\begin{center}
-  {\Large STT290 - Probabilitées} \\ \vspace{5mm}
-  {\LARGE\sffamily Résumé} \\
-  Alexis Jean\\
-\end{center}
+%\begin{center}
+  %{\Large STT290 - Probabilitées} \\ \vspace{5mm}
+  %{\LARGE\sffamily Résumé} \\
+  %Alexis Jean\\
+%\end{center}
 
-\hrule
+%\hrule
 
 %\tableofcontents
 
-\section{\underline{Variables aléatoires continues}}
+\begin{multicols}{2}
+  \section{\underline{Variables aléatoires continues}}
 
-\textbf{Définition :} Une variable aléatoire $X$ est dite continue si elle peut prendre une infinité de valeurs dans un intervalle de $\mathbb{R}$. \\
+
+  \textbf{Variable aléatoire continues :} Une variable aléatoire $X$ est dite continue si elle peut prendre une infinité de valeurs dans un intervalle de $\mathbb{R}$. \\
+  $P(x \epsilon B) = \int_{x \epsilon B} f(x) dx$ \\
+  
+
+  \textbf{Fonction de répartition :} La fonction de répartition $F(x)$ d'une variable aléatoire continue $X$ est définie par : \\
+  $F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) dt$ \\
+  Donc, la fonction de densité $f(x)$ est la dérivée de la fonction de répartition $F(x)$ : \\
+  $f(x) = \frac{d}{dx} F(x)$ \\
+  
+  $E(X) = \int_{-\infty}^{\infty} x f(x) dx$ \\
+  $Var(X) = \int_{-\infty}^{\infty} (x - E(X))^2 f(x) dx$ \\
+
+
+  \section{\underline{Variables uniformes et beta}}
+
+
+  \textbf{Variable aléatoire uniforme continue :} Une variable aléatoire $X$ est dite uniforme continue sur l'intervalle $[a, b]$ si sa fonction de densité est donnée par : \\
+  \[
+  f(x) =
+  \begin{cases}
+    \dfrac{1}{b - a} & \text{si } a \leq x \leq b, \\
+    0 & \text{sinon}
+  \end{cases}
+  \]
+  La fonction de répartition est : \\
+  \[
+  F(x) =
+  \begin{cases}
+    0 & \text{si } x < a, \\
+    \dfrac{x - a}{b - a} & \text{si } a \leq x \leq b, \\
+    1 & \text{si } x > b
+  \end{cases}
+  \] \\
+
+
+  \textbf{Variable aléatoire Beta :} Une variable aléatoire $X$ suit la loi Beta si sa fonction de densité est donnée par : \\
+  \[
+  f(x) =
+  \begin{cases}
+    \dfrac{1}{B(a, b)} x^{a-1} (1-x)^{b-1} & \text{si } 0 \leq x \leq 1, \\
+    0 & \text{sinon}
+  \end{cases}
+  \]
+  où les paramètres $a, b > 0$ et $B(a, b)$ = $\int_{0}^{1} x^{a-1} (1-x)^{b-1} dx$ est la fonction bêta. \\
+
+  $E(X) = \dfrac{a}{a + b}$ \\
+  $Var(X) = \dfrac{ab}{(a + b)^2 (a + b + 1)}$ \\
+
+
+  \textbf{Variable exponentielle :} Une variable aléatoire $X$ suit la loi exponentielle avec le paramètre $\lambda > 0$ si sa fonction de densité est donnée par : \\
+  \[
+  f(x) =
+  \begin{cases}
+    \lambda e^{-\lambda x} & \text{si } x \geq 0, \\
+    0 & \text{sinon}
+  \end{cases}
+  \]
+
+  La fonction de répartition est : \\
+  \[
+  F(x) =
+  \begin{cases}
+    0 & \text{si } x < 0, \\
+    1 - e^{-\lambda x} & \text{si } x \geq 0
+  \end{cases}
+  \] \\
+
+  $E(X) = \dfrac{1}{\lambda}$ \\
+  $Var(X) = \dfrac{1}{\lambda^2}$ \\
+
+  
+  \textbf{Variable gamma :} Une variable aléatoire $X$ suit la loi gamma avec les paramètres $\gamma$ et $\lambda$ si sa fonction de densité est donnée par : \\
+  \[
+  f(x) =
+  \begin{cases}
+    \dfrac{{\lambda e^{-\lambda x}(\lambda x)^{\gamma - 1}}} {\Gamma(\gamma)} & \text{si } x \geq 0, \\
+    0 & \text{sinon}
+  \end{cases}
+  \]
+  où $\Gamma(\gamma) = \int_{0}^{\infty} x^{\gamma - 1} e^{-x} dx$ est la fonction gamma. \\
+  La fonction de répartition est : \\
+  \[
+  F(x) =
+  \begin{cases}
+    \int_{0}^{x} \dfrac{\lambda e^{-\lambda t}(\lambda t)^{\gamma - 1}}{\Gamma(\gamma)} dt & \text{si } x \geq 0, \\
+    0 & \text{sinon}
+  \end{cases}
+  \] \\
+  $E(X) = \dfrac{\gamma}{\lambda}$ \\
+  $Var(X) = \dfrac{\gamma}{\lambda^2}$ \\
+
+  \textbf{Variable de Weibull :} 
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
 
 
 
