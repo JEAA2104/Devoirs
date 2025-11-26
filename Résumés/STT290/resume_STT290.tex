@@ -81,15 +81,15 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 
   \textbf{Variable aléatoire continues :} Une variable aléatoire $X$ est dite continue si elle peut prendre une infinité de valeurs dans un intervalle de $\mathbb{R}$. \\
-  $P(x \epsilon B) = \int_{x \epsilon B} f(x) dx$ \\
+  $\mathbb{P}(x \epsilon B) = \int_{x \epsilon B} f(x) dx$ \\
   
 
   \textbf{Fonction de répartition :} La fonction de répartition $F(x)$ d'une variable aléatoire continue $X$ est définie par : \\
-  $F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) dt$ \\
+  $F(x) = \mathbb{P}(X \leq x) = \int_{-\infty}^{x} f(t) dt$ \\
   Donc, la fonction de densité $f(x)$ est la dérivée de la fonction de répartition $F(x)$ : \\
   $f(x) = \frac{d}{dx} F(x)$ \\
   
-  $E(X) = \int_{-\infty}^{\infty} x f(x) dx$ \\
+  $\mathbb{E}(X) = \int_{-\infty}^{\infty} x f(x) dx$ \\
   $Var(X) = \int_{-\infty}^{\infty} (x - E(X))^2 f(x) dx$ \\
 
 
@@ -122,7 +122,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \]
   où les paramètres $a, b > 0$ et $B(a, b)$ = $\int_{0}^{1} x^{a-1} (1-x)^{b-1} dx$ est la fonction bêta. \\
 
-  $E(X) = \dfrac{a}{a + b}$ \\
+  $\mathbb{E}(X) = \dfrac{a}{a + b}$ \\
   $Var(X) = \dfrac{ab}{(a + b)^2 (a + b + 1)}$ \\
 
 
@@ -144,7 +144,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \end{cases}
   \] \\
 
-  $E(X) = \dfrac{1}{\lambda}$ \\
+  $\mathbb{E}(X) = \dfrac{1}{\lambda}$ \\
   $Var(X) = \dfrac{1}{\lambda^2}$ \\
 
   
@@ -157,6 +157,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \end{cases}
   \]
   où $\Gamma(\gamma) = \int_{0}^{\infty} x^{\gamma - 1} e^{-x} dx$ est la fonction gamma. \\
+  Truc : $\Gamma(n) = (n-1)!$ si n est un entier positif. \\
   La fonction de répartition est : \\
   \[
   F(x) =
@@ -165,7 +166,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
     0 & \text{sinon}
   \end{cases}
   \] \\
-  $E(X) = \dfrac{\gamma}{\lambda}$ \\
+  $\mathbb{E}(X) = \dfrac{\gamma}{\lambda}$ \\
   $Var(X) = \dfrac{\gamma}{\lambda^2}$ \\
 
   \textbf{Variable de Weibull :} Une variable aléatoire $X$ suit la loi de Weibull si sa fonction de répartition est donnée par : \\
@@ -187,7 +188,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \end{cases}
   \]
 
-  $E(X) = \alpha \Gamma(\dfrac{1}{\beta} + 1)$ \\
+  $\mathbb{E}(X) = \alpha \Gamma(\dfrac{1}{\beta} + 1)$ \\
   $Var(X) = \alpha^2 \Gamma(\dfrac{2}{\beta} + 1) - \alpha^2 \Gamma^2(\dfrac{1}{\beta} + 1)$ \\
 
 
@@ -202,7 +203,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
     1 - \dfrac{1}{2} e^{-\dfrac{x - \mu}{\sigma}} & \text{si } x \geq \mu
   \end{cases}
   \] \\
-  $E(X) = \mu$ \\
+  $\mathbb{E}(X) = \mu$ \\
   $Var(X) = 2\sigma^2$ \\
 
 
@@ -211,7 +212,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   où $\mu \epsilon \mathbb{R}$ et $\sigma > 0$. On note $X~\sim N(\mu, \sigma^2)$. \\
   La fonction de répartition est : \\
   $F(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^{x} e^{-\dfrac{(t - \mu)^2}{2\sigma^2}} dt$ \\
-  $E(X) = \mu$ \\
+  $\mathbb{E}(X) = \mu$ \\
   $Var(X) = \sigma^2$ \\
 
 
