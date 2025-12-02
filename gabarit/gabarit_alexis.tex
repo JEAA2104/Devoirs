@@ -57,6 +57,11 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 %   showtabs=false,
 }
 
+\newcounter{questioncounter}
+\newenvironment{question}[1]{
+\refstepcounter{questioncounter}
+\noindent\rule{0.05\textwidth}{1pt}\,\,\raisebox{-.3\ht\strutbox}{\textbf{Question \thequestioncounter : #1}}\,\,\hrulefill\par\vspace{0.4cm}
+}{\par}
 
 \begin{document}
 

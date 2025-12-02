@@ -214,6 +214,25 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $F(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^{x} e^{-\dfrac{(t - \mu)^2}{2\sigma^2}} dt$ \\
   $\mathbb{E}(X) = \mu$ \\
   $Var(X) = \sigma^2$ \\
+  (*Voir table de la loi normale ainsi que les théorèmes associés pour les valeurs de $F(x)$*) \\
+
+
+  \section{\underline{Vecteurs aléatoires}}
+
+  \textbf{Vecteurs aléatoires :} Soient $X$ et $Y$ deux variables aléatoires continues. Le vecteur aléatoire $(X, Y)$ est défini par sa fonction de répartition conjointe $F(x, y)$ telle que : \\
+  $F(x,y) = \mathbb{P}(X \leq x, Y \leq y)$ où $x, y \epsilon \mathbb{R}$. \\
+
+  \textbf{Densité des vecteurs aléatoire continus :} La fonction de densité conjointe $f(x, y)$ du vecteur aléatoire $(X, Y)$ est définie par : \\
+  $\mathbb{P}((X,Y)\epsilon A) = \int\int_{A}f(x,y)dxdy$
+  Il faut que la densité f respecte les deux consitions suivantes : \\
+  1. $f(x,y) \geq 0$ \\
+  2. $\int \int_{\mathbb{R}^2} f(x,y) dx dy = 1$ \\
+
+
+
+  
+
+
 
 
 
@@ -226,8 +245,6 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 
 \end{multicols}
-
-
 
 \end{document}
 
