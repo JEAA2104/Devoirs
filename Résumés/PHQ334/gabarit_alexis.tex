@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+
+\usepackage[french, english]{babel}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{braket}
+
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
+text centered, draw=black, fill=blue!10]
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
+text centered, draw=black, fill=green!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
+\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
+\renewcommand\lstlistingname{Code Python}
+
+\lstset{frame=tb,
+  language=Python,
+  numbers=left,
+  stepnumber=1,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+%   numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{paired2b},
+  stringstyle=\color{paired3b},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=1,
+  frame=single,
+%   showtabs=false,
+}
+
+\newcounter{questioncounter}
+\newenvironment{question}[1]{
+\refstepcounter{questioncounter}
+\noindent\rule{0.05\textwidth}{1pt}\,\,\raisebox{-.3\ht\strutbox}{\textbf{Question \thequestioncounter : #1}}\,\,\hrulefill\par\vspace{0.4cm}
+}{\par}
+
+\begin{document}
+
+%\renewcommand*{\contentsname}{Table des matières}
+
+%\hrule
+
+%\begin{center}
+%  {\Large Code + Nom du cours} \\ \vspace{5mm}
+%  {\LARGE\sffamily Sujet du pdf} \\
+%  Alexis Jean + nom des autres\\
+% À remettre le ???
+%\end{center}
+
+%\hrule
+
+%\tableofcontents
+
+\section{\underline{Placeholder pour le résumé de quantique}}
+
+\subsection{}
+
+
+\end{document}
+
+
+
+
+
+
+
