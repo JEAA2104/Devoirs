@@ -1,0 +1,670 @@
+\documentclass[11pt]{article}
+
+\usepackage[french, english]{babel}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{braket}
+
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
+text centered, draw=black, fill=blue!10]
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
+text centered, draw=black, fill=green!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
+\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
+\renewcommand\lstlistingname{Code Python}
+
+\lstset{frame=tb,
+  language=Python,
+  numbers=left,
+  stepnumber=1,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+%   numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{paired2b},
+  stringstyle=\color{paired3b},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=1,
+  frame=single,
+%   showtabs=false,
+}
+
+\newcounter{questioncounter}
+\newenvironment{question}[1]{
+\refstepcounter{questioncounter}
+\noindent\rule{0.05\textwidth}{1pt}\,\,\raisebox{-.3\ht\strutbox}{\textbf{Question \thequestioncounter : #1}}\,\,\hrulefill\par\vspace{0.4cm}
+}{\par}
+
+\begin{document}
+
+%\renewcommand*{\contentsname}{Table des matières}
+
+\hrule
+
+\begin{center}
+  {\Large PHQ334 - Mécanique quantique} \\ \vspace{5mm}
+  {\LARGE\sffamily Devoir 5} \\
+  Makram Abid, Alexis Jean\\
+  À remettre le 8 décembre 2025
+\end{center}
+
+\hrule
+
+%?\tableofcontents
+
+\vspace{1cm}
+
+\begin{question}{Interaction Heisenberg isotrope}
+\subsection*{a) Matrices des opérateurs ($S_\mu^1$) (avec ($\mu=z,+,-,x,y$))}
+Puisque nous savons que la base $\{{\ket{\uparrow\uparrow},\ \ket{\uparrow\downarrow},\ \ket{\downarrow\uparrow},\ \ket{\downarrow\downarrow}}\}$ nous donne la matrice identité 4x4, on peut écrit ($S_\mu^1=S^\mu\otimes\mathbb I$) et ($S_\mu^2=\mathbb I\otimes S^\mu$).
+Dans la base des spins donnée plus haut,
+\[
+S_z^1=\frac{\hbar}{2}\operatorname{diag}(1,1,-1,-1),
+\qquad
+S_z^1=\frac{\hbar}{2}\operatorname{diag}(1,-1,1,-1).
+\]
+Pour les opérateurs +/-, rappel : $(S_+=\hbar\begin{pmatrix}0&1\\0&0\end{pmatrix})$, $(S_-=\hbar\begin{pmatrix}0&0\\1&0\end{pmatrix})$. Ainsi
+\[
+S_+^1=\hbar\begin{pmatrix}
+0&1&0&0\\
+0&0&0&0\\
+0&0&0&1\\
+0&0&0&0\\
+\end{pmatrix},\qquad
+S_-^1=\hbar\begin{pmatrix}
+0&0&0&0\\
+1&0&0&0\\
+0&0&0&0\\
+0&0&1&0\\
+\end{pmatrix},
+\]
+et pour le spin 2 (opérant sur la seconde composante)
+\[
+S_+^2=\hbar\begin{pmatrix}
+0&0&1&0\\
+0&0&0&1\\
+0&0&0&0\\
+0&0&0&0\\
+\end{pmatrix},\qquad
+S_-^2=\hbar\begin{pmatrix}
+0&0&0&0\\
+0&0&0&0\\
+1&0&0&0\\
+0&1&0&0\\
+\end{pmatrix}.
+\]
+Enfin, $(S_x=\tfrac12(S^+ + S^-))$, $(S_y=\tfrac{1}{2i}(S^+ - S^-))$, donc on peut écrire explicitement $(S_x^1,S_y^1,S_x^2,S_y^2)$ en faisant les opérations appropriés avec les matrices trouvées plus haut t.q. :\\
+Pour $S_x^1$ :
+\[
+S_x^1=\frac{\hbar}{2}\begin{pmatrix}
+0&1&0&0\\
+0&0&0&0\\
+0&0&0&1\\
+0&0&0&0\\
+\end{pmatrix}
++ \begin{pmatrix}
+0&0&0&0\\
+1&0&0&0\\
+0&0&0&0\\
+0&0&1&0\\
+\end{pmatrix}
+= \frac{\hbar}{2}\begin{pmatrix}
+0&1&0&0\\
+1&0&0&0\\
+0&0&0&1\\
+0&0&1&0\\
+\end{pmatrix}
+\]
+Pour $S_y^1$ :
+\[
+S_y^1=\frac{\hbar}{2i}\begin{pmatrix}
+0&1&0&0\\
+0&0&0&0\\
+0&0&0&1\\
+0&0&0&0\\
+\end{pmatrix}
+- \begin{pmatrix}
+0&0&0&0\\
+1&0&0&0\\
+0&0&0&0\\
+0&0&1&0\\
+\end{pmatrix}
+= \frac{\hbar}{2i}\begin{pmatrix}
+0&1&0&0\\
+-1&0&0&0\\
+0&0&0&1\\
+0&0&-1&0\\
+\end{pmatrix}
+\]
+Pour $S_x^2$ :
+\[
+S_x^2=\frac{\hbar}{2}\begin{pmatrix}
+0&0&1&0\\
+0&0&0&1\\
+0&0&0&0\\
+0&0&0&0\\
+\end{pmatrix}
++ \begin{pmatrix}
+0&0&0&0\\
+0&0&0&0\\
+1&0&0&0\\
+0&1&0&0\\
+\end{pmatrix}
+= \frac{\hbar}{2}\begin{pmatrix}
+0&0&1&0\\
+0&0&0&1\\
+1&0&0&0\\
+0&1&0&0\\
+\end{pmatrix}
+\]
+Pour $S_y^2$ :
+\[
+S_y^2 = \frac{\hbar}{2i}\begin{pmatrix}
+0&0&1&0\\
+0&0&0&1\\
+0&0&0&0\\
+0&0&0&0\\
+\end{pmatrix}
+- \begin{pmatrix}
+0&0&0&0\\
+0&0&0&0\\
+1&0&0&0\\
+0&1&0&0\\
+\end{pmatrix}
+= \frac{\hbar}{2i}\begin{pmatrix}
+0&0&1&0\\
+0&0&0&1\\
+-1&0&0&0\\
+0&-1&0&0\\
+\end{pmatrix}
+\]
+
+\subsection*{(b) Représentation de l'hamiltonien}
+On peut décomposer les matrices S selon la forme :
+\[
+H_H = J\left(
+S_x^1S_x^2 + S_y^1 S_y^2 + S_z^1 S_z^2
+\right).
+\]
+On calcule séparément chaque terme t.q. :
+\[
+S_z^1 S_z^2 =
+\frac{\hbar^2}{4}
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}.
+\]
+\[
+S_+^1 S_-^2 =
+\hbar^2
+\begin{pmatrix}
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0\\
+\end{pmatrix},
+\quad
+S_-^1 S_+^2 =
+\hbar^2
+\begin{pmatrix}
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+\end{pmatrix}.
+\]
+On sait que :
+\[
+S_x^1 S_x^2 + S_y^1 S_y^2
+= \frac12 (S_+^1 S_-^2 + S_-^1 S_+^2).
+\]
+Nous avons donc l'hamiltonien :
+\[
+H_H =
+J\left[
+\frac12(S_+^1 S_-^2 + S_-^1 S_+^2)
+S_z^1 S_z^2
+\right].
+\]
+\[
+J\hbar^2
+\begin{pmatrix}
+\frac14 & 0 & 0 & 0\\
+0 & -\frac14 & \frac12 & 0\\
+0 & \frac12 & -\frac14 & 0\\
+0 & 0 & 0 & \frac14\\
+\end{pmatrix}.
+\]
+
+\subsection*{(c) Énergies et états propres de $H_H$}
+Dans la base
+$\{\ket{\uparrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\uparrow},\ket{\downarrow\downarrow}\}$,
+l'hamiltonien Heisenberg s'écrit (comme vu en b)),
+\[
+H_H = J\hbar^2
+\begin{pmatrix}
+\frac14 & 0 & 0 & 0\\[4pt]
+0 & -\frac14 & \frac12 & 0\\[4pt]
+0 & \frac12 & -\frac14 & 0\\[4pt]
+0 & 0 & 0 & \frac14
+\end{pmatrix}.
+\]
+Les états \(\ket{\uparrow\uparrow}\) et \(\ket{\downarrow\downarrow}\) sont immédiatement propres avec valeur propre \(J\hbar^2/4\).
+Pour le sous-espace engendré par \(\{\ket{\uparrow\downarrow},\ket{\downarrow\uparrow}\}\) on diagonalise le bloc
+\[
+J\hbar^2\begin{pmatrix}-\tfrac14 & \tfrac12\\[4pt]\tfrac12 & -\tfrac14\end{pmatrix}.
+\]
+En résolvant \((-\tfrac14-\lambda)x + \tfrac12 y = 0\) et \(\tfrac12 x + (-\tfrac14-\lambda)y = 0\), on trouve les valeurs propres
+\(\lambda_1=\tfrac14\) et \(\lambda_2=-\tfrac34\).
+Les vecteurs propres respectifs sont :
+\[
+\ket{\phi_1}=\frac{1}{\sqrt2}\big(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}\big),\qquad
+\ket{\phi_2}=\frac{1}{\sqrt2}\big(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}\big).
+\]
+Ainsi, les états propres et leurs énergies associées sont :
+\[
+\begin{aligned}
+\ket{\phi_0} &= \ket{\uparrow\uparrow}, & E_0 &= \dfrac{J\hbar^2}{4},\\[4pt]
+\ket{\phi_1} &= \dfrac{1}{\sqrt2}\big(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}\big), & E_1 &= \dfrac{J\hbar^2}{4},\\[4pt]
+\ket{\phi_2} &= \ket{\downarrow\downarrow}, & E_2 &= \dfrac{J\hbar^2}{4},\\[6pt]
+\ket{\phi_3} &= \dfrac{1}{\sqrt2}\big(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}\big), & E_3 &= -\dfrac{3J\hbar^2}{4}.
+\end{aligned}
+\]
+
+\subsection*{(d) Application d'un champ magnétique}
+
+On exprime le champ magnétique t.q. :
+$H_B = -\gamma B_0\big(S_1^z+S_2^z\big)$.\\
+
+Calculons le commutateur :
+\[
+[H_H,H_B] = -\gamma B_0\sum_{\mu=x,y,z}\Big([S_\mu^1 S_\mu^1,S_z^1+[S_\mu^1 S_\mu^2,S_z^2]\Big).
+\]
+En utilisant la propriété \([S_a^i,S_b^j]=i\hbar\,\varepsilon_{abc}\delta_{ij}S_c^i\) on obtient :
+\[
+[S_\mu^1 S_\mu^2,S_z^1] = i\hbar\,\varepsilon_{\mu z c}\,S_c^1 S_\mu^2,\qquad
+[S_\mu^1 S_\mu^2,S_z^2] = i\hbar\,\varepsilon_{\mu z c}\,S_\mu^1 S_2^c.
+\]
+La somme sur les indices \(\mu,c\) de \(\varepsilon_{\mu z c}(S_1^c S_2^\mu + S_1^\mu S_2^c)\) s'annule par antisymétrie, donc :
+\([H_H,S_1^z+S_2^z]=0\) et donc \([H_H,H_B]=0\).
+
+\paragraph{Conclusion}
+On conclue que comme \(H_H\) commute avec \(H_B\), ils sont simultanément diagonalisables : les états propres de \(H_H\) peuvent être choisis comme états propres de \(H_B\). \(H_B\) est donc diagonal dans la base \(\{\ket{\uparrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\uparrow},\ket{\downarrow\downarrow}\}\) :
+\[
+S_z^1+S_z^2=\hbar\,\mathrm{diag}(1,0,0,-1),
+\quad
+H_B=-\gamma B_0\hbar\,\mathrm{diag}(1,0,0,-1).
+\]
+
+Les états propres et énergies de \(H'=H_H+H_B\) sont donc :
+\[
+\begin{aligned}
+\ket{\phi_0}=\ket{\uparrow\uparrow},\quad &E_{\phi_0}'=\tfrac{J\hbar^2}{4}-\gamma B_0\hbar,\\[4pt]
+\ket{\phi_1}=\tfrac{1}{\sqrt2}(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}),\quad &E_{\phi_1}'=\tfrac{J\hbar^2}{4},\\[4pt]
+\ket{\phi_2}=\ket{\downarrow\downarrow},\quad &E_{\phi_2}'=\tfrac{J\hbar^2}{4}+\gamma B_0\hbar,\\[6pt]
+\ket{\phi_3}=\tfrac{1}{\sqrt2}(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}),\quad &E_{\phi_3}'=-\tfrac{3J\hbar^2}{4}.
+\end{aligned}
+\]
+
+Le champ magnétique retire la dégénérescence qu'il y avait entre $\ket{\phi_0}$, $\ket{\phi_1}$ et $\ket{\phi_2}$.\\
+$\ket{\phi3}$, pour sa part, reste inchangé.
+
+
+\subsection*{(e) Terme DM : construction complète}
+En simplifiant les vecteurs $S_1$ et $S_2$, on obtient que l'hamiltonien peut être défini t.q :
+\[
+H_{DM} =D(S_x^1 S_y^2 - S_y^1 S_x^2)
+\]
+
+On peut exprimer $S_x$ et $S_y$ par leur définition trouvée en a) :
+\[
+S_x = \frac{S_+ + S_-}{2},\qquad
+S_y = \frac{S_+ - S_-}{2i}.
+\]
+
+Développons les termes avec leur définition :
+\[
+S_x^1 S_y^2 =
+\frac{1}{4i}(S_+^1 + S_-^1)(S_+^2 - S_-^2),
+\]
+\[
+S_y^1 S_x^2 =
+\frac{1}{4i}(S_+^1 - S_-^1)(S_+^2 + S_-^2).
+\]
+\[
+= \frac{1}{2i}(S_-^1 S_+^2 - S_+^1 S_-^2).
+\]
+
+On met le tout sous forme de matrices :
+\[
+\hbar^2
+\begin{pmatrix}
+0 & 0 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0\\
+\end{pmatrix}.
+\]
+
+\[
+\frac{D\hbar^2}{2}
+\begin{pmatrix}
+0 & 0 & 0 & 0\\
+0 & 0 & i & 0\\
+0 & -i & 0 & 0\\
+0 & 0 & 0 & 0\\
+\end{pmatrix}.
+\]
+
+Les valeurs propres du bloc central sont 
+$\lambda_{\pm} = \pm \frac{D\hbar^2}{2}$.
+
+\[
+\boxed{
+E_\pm = \pm \frac{D\hbar^2}{2},\qquad
+\ket{\phi_\pm} = \frac{1}{\sqrt2}
+(\ket{\uparrow\downarrow} \pm i\ket{\downarrow\uparrow}).
+}
+\]
+
+Les états $\ket{\uparrow\uparrow}$ et $\ket{\downarrow\downarrow}$ sont d'énergie 0.
+\end{question}
+
+\newpage
+
+\begin{question}{Produit tensoriel de deux spins $\frac{1}{2}$}
+
+\subsection*{(a)Valeurs propres et états propres de H dans $\sigma_z$}
+On rappelle que l'hamiltonien est donné par $H=\hbar g\,\sigma_{y}^1\otimes\sigma_{x}^2$.\\
+
+Nous avons nos matrices de pauli données par :
+\[
+\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+\sigma_y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\quad
+\sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+
+On obtient en faisant le produit tensoriel que la matrice de $H$ est t.q. :
+\[
+\sigma_y\otimes\sigma_x =
+\begin{pmatrix}
+0 & 0 & 0 & -i\\[4pt]
+0 & 0 & -i & 0\\[4pt]
+0 & i & 0 & 0\\[4pt]
+i & 0 & 0 & 0
+\end{pmatrix},\qquad
+H=\hbar g\,\sigma_y\otimes\sigma_x.
+\]
+
+
+Puisque $(\sigma_y\otimes\sigma_x)^2=I_4$, les valeurs propres de $\sigma_y\otimes\sigma_x$ sont $\pm1$. Les valeurs propres de $H$ sont donc
+\[
+E=\pm\hbar g.
+\]
+
+Les états propres de $\sigma_x$ et $\sigma_y$ sont donnés par:
+\[
+\ket{+}_x=\frac{1}{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix},\;
+\ket{-}_x=\frac{1}{\sqrt2}\begin{pmatrix}1\\-1\end{pmatrix},\;
+\ket{+}_y=\frac{1}{\sqrt2}\begin{pmatrix}1\\ i\end{pmatrix},\;
+\ket{-}_y=\frac{1}{\sqrt2}\begin{pmatrix}1\\ -i\end{pmatrix}.
+\]
+Les possibles combinaisons avec le produit tensoriel sont alors vecteurs propres ; en base computationnelle :
+\[
+\begin{aligned}
+\ket{+_y,+_x}
+&= \frac{1}{2}\begin{pmatrix}1\\[2pt]1\\[2pt]i\\[2pt]i\end{pmatrix},
+\qquad
+\ket{+_y,-_x}
+= \frac{1}{2}\begin{pmatrix}1\\[2pt]-1\\[2pt]i\\[2pt]-i\end{pmatrix},\\[6pt]
+\ket{-_y,+_x}
+&= \frac{1}{2}\begin{pmatrix}1\\[2pt]1\\[2pt]-i\\[2pt]-i\end{pmatrix},
+\qquad
+\ket{-_y,-_x}
+= \frac{1}{2}\begin{pmatrix}1\\[2pt]-1\\[2pt]-i\\[2pt]i\end{pmatrix}.
+\end{aligned}
+\]
+
+Valeurs propres associées :
+\[
+\begin{aligned}
+&H\ket{+_y,+_x}=+\hbar g\,\ket{+_y,+_x},\quad
+H\ket{+_y,-_x}=-\hbar g\,\ket{+_y,-_x},\\[4pt]
+&H\ket{-_y,+_x}=-\hbar g\,\ket{-_y,+_x},\quad
+H\ket{-_y,-_x}=+\hbar g\,\ket{-_y,-_x}.
+\end{aligned}
+\]
+
+\paragraph{(b) Mesure d'énergie pour } $\ket{\psi}=\dfrac{1}{\sqrt2}(\ket{\uparrow\uparrow}+\ket{\downarrow\downarrow})$.\\
+On réécrit l'état en vecteur de coordonnées t.q. :
+\[
+\ket{\psi}=\frac{1}{\sqrt2}\begin{pmatrix}1\\[2pt]0\\[2pt]0\\[2pt]1\end{pmatrix}.
+\]
+On projette $\ket{\psi}$ sur la base $\{\ket{+_y,+_x}, \ket{-_y,-_x}, \ket{-_y,+_x}, \ket{+_y,-_x}\}$ : 
+
+\[
+\begin{aligned}
+a_{+,+} &= \braket{+_y,+_x|\psi}
+= \frac{1}{2\sqrt2}(1-i),\\[6pt]
+a_{+,-} &= \braket{+_y,-_x|\psi}
+= \frac{1}{2\sqrt2}(1+i),\\[6pt]
+a_{-,+} &= \braket{-_y,+_x|\psi}
+= \frac{1}{2\sqrt2}(1+i),\\[6pt]
+a_{-,-} &= \braket{-_y,-_x|\psi}
+= \frac{1}{2\sqrt2}(1-i).
+\end{aligned}
+\]
+Calcul des probabilités :
+\[
+|a|^2 = \frac{1}{8}\,|1\pm i|^2 = \frac{1}{8}\cdot 2 = \frac14 \quad\text{pour chaque paire }(+_{xy},-_{xy}).
+\]
+Deux états propres donnent $E=+\hbar g$ et deux donnent $E=-\hbar g$, donc
+\[
+\boxed{P(E=+\hbar g)=\tfrac12,\qquad P(E=-\hbar g)=\tfrac12.}
+\]
+
+\paragraph{(c) Mesure en fonction des probabilités}
+Si l'on mesure d'abord $S_{z}$ et qu'on obtient $+\tfrac{\hbar}{2}$ (projection sur $\ket{\uparrow}_1$), l'état projeté est :
+\[
+(\ket{\uparrow}\bra{\uparrow}\otimes I)\ket{\psi} = \frac{1}{\sqrt2}\ket{\uparrow\uparrow}.
+\]
+L'état normalisé du second spin est $\ket{\uparrow}_2$. La probabilité que la mesure suivante $S_{x}$ donne $+\tfrac{\hbar}{2}$ est
+\[
+P(S_{x}=\braket{+\tfrac{\hbar}{2}\mid S_{z}}=+\tfrac{\hbar}{2})
+= |\braket{+_x|\uparrow}|^2 = \left(\frac{1}{\sqrt2}\right)^2 = \frac12.
+\]
+\end{question}
+
+\newpage
+
+\begin{question}{Oscillateur harmonique chargé dans un champ électrique}
+Petit rappel :
+\[
+H_0=\frac{P^2}{2m}+\frac12 m\omega^2 X^2 = \hbar\omega\Big(a^\dagger a + \tfrac12\Big).
+\]
+La perturbation est :
+\[
+W(t) = -q\varepsilon(t)X.
+\]
+Le nouvel hamiltonien est donné par :
+\[
+H = H_0 + W
+\]
+\subsection*{(a) Expression de (H(t)) en ($a,a^\dagger$)}
+Remplaçons (X) par son expression en ($a,a^\dagger$) :
+\[
+X = \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger).
+\]
+Donc
+\[
+W(t)=-q\varepsilon(t)\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger) = -\hbar\lambda(t)(a+a^\dagger),
+\]
+où $\lambda(t)=\dfrac{q\varepsilon(t)}{\sqrt{2\hbar m\omega}}$.
+
+\vspace{0.5cm}
+
+Ainsi le nouvel hamiltonien est :
+\[
+\boxed{H(t)=\hbar\omega\Big(a^\dagger a + \tfrac12\Big) - \hbar\lambda(t)\big(a+a^\dagger\big)}
+\]
+
+
+\subsection*{(b) Calcul des commutateurs ($[a,H]$) et ($[a^\dagger,H]$)}
+
+On utilise $[a,a^\dagger]=1$ et $[a,a]=[a^\dagger,a^\dagger]=0$.\\
+
+Développons $H(t)=\hbar\omega a^\dagger a + \tfrac12\hbar\omega - \hbar\lambda(t)(a+a^\dagger)$.
+
+\paragraph{Calcul de $[a,\hbar\omega a^\dagger a]$.}
+Utilisons la relation :
+\[
+[a,a^\dagger a] = [a,a^\dagger]a + a^\dagger[a,a] = 1a + a^\dagger\cdot 0 = a.
+\]
+Donc
+\[
+[a,\hbar\omega a^\dagger a]=\hbar\omega a.
+\]
+
+\paragraph{Calcul de $[a,\tfrac12\hbar\omega]$.}
+Pusique $h\omega$ est une constate scalaire, le commutateur est nul donc :
+\[
+[a,\tfrac12\hbar\omega]=0.
+\]
+
+\paragraph{Calcul de $[a,-\hbar\lambda(t)(a+a^\dagger)]$.}
+\[
+[a,-\hbar\lambda(t)(a+a^\dagger)]
+= -\hbar\lambda(t)\big([a,a] + [a,a^\dagger]\big)
+= -\hbar\lambda(t)\big(0 + 1\big)
+= -\hbar\lambda(t).
+\]
+
+\[
+\boxed{[a,H] = \hbar\omega a - \hbar\lambda(t).}
+\]
+
+\medskip
+
+On fait la même chose pour $a^\dagger$.
+\paragraph{Calcul de $[a^\dagger,\hbar\omega a^\dagger a]$.}
+\[
+[a^\dagger,a^\dagger a] = a^\dagger[a^\dagger,a] + [a^\dagger,a^\dagger]a = a^\dagger(-1) + 0 = -a^\dagger,
+\]
+donc,
+\[
+[a^\dagger,\hbar\omega a^\dagger a] = \hbar\omega(-a^\dagger) = -\hbar\omega a^\dagger.
+\]
+\vspace{0.5cm}
+Même chose pour le calcul de $[a^\dagger,\tfrac12\hbar\omega]$, le commutateur donne 0.
+
+\paragraph{Calcul de $[a^\dagger,-\hbar\lambda(t)(a+a^\dagger)]$.}
+\[
+[a^\dagger, -\hbar\lambda(t)(a+a^\dagger)]
+= -\hbar\lambda(t)\big([a^\dagger,a] + [a^\dagger,a^\dagger]\big)
+= -\hbar\lambda(t)\big(-1 + 0\big)
+= +\hbar\lambda(t).
+\]
+
+\[
+\boxed{[a^\dagger,H] = -\hbar\omega a^\dagger + \hbar\lambda(t).}
+\]
+
+\subsection*{(c) Preuve que $\alpha(t)$ satisfait $\dfrac{d\alpha (t)}{dt} = -i\omega\alpha (t) + i\lambda (t)$}
+
+En mécanique quantique, pour un opérateur O sans dépendance explicite en t , l'équation d'Ehrenfest est :
+\[
+\frac{d}{dt}\langle O\rangle = \frac{1}{i\hbar}\langle [O,H]\rangle.
+\]
+Appliquons ceci à $O=a$ :
+\[
+\dot\alpha(t) = \frac{1}{i\hbar}\langle [a,H]\rangle.
+\]
+En remplaçant $[a,H]$ trouvé précédemment :
+\[
+\dot\alpha(t) = \frac{1}{i\hbar}\langle \hbar\omega a - \hbar\lambda(t)\rangle
+= \frac{1}{i}\big(\omega \alpha(t) - \lambda(t)\big).
+\]
+On trouve :
+\[
+\boxed{\displaystyle \dot\alpha(t) = -i\omega\alpha(t) + i\lambda(t).}
+\]
+
+\subsection*{(d) Intégration de l'équation trouvée en c)}
+
+Réécrivons l'équation :
+\[
+\dot\alpha(t) + i\omega \alpha(t) = i\lambda(t).
+\]
+\vspace{0.25cm}
+On pose que $\mu(t)=e^{i\omega t}$ puisque $\frac{d}{dt}e^{i\omega t} = i\omega e^{i\omega t}$. Multiplions l'équation par $\mu(t)$ :
+\[
+e^{i\omega t}\dot\alpha(t) + i\omega e^{i\omega t}\alpha(t) = i e^{i\omega t}\lambda(t).
+\]
+Le côté gauche est la dérivée totale :
+\[
+\frac{d}{dt}\big(e^{i\omega t}\alpha(t)\big) = i e^{i\omega t}\lambda(t).
+\]
+Intégrons de $t_0$ à $t$ :
+\[
+e^{i\omega t}\alpha(t) - e^{i\omega t_0}\alpha_0 = i\int_{t_0}^{t} e^{i\omega t'}\lambda(t')dt'.
+\]
+Isolons $\alpha(t)$ :
+\[
+\boxed{\displaystyle
+\alpha(t) = \alpha_0 e^{-i\omega(t-t_0)} + i\int_{t_0}^{t} e^{-i\omega(t-t')}\lambda(t')dt'.
+}
+\]
+
+\subsection*{(e) Expressions de $\langle X\rangle$ et $\langle P\rangle$ en fonction de $\alpha(t)$}
+
+Rappel des opérateurs :
+\[
+X = \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger),\qquad
+P = i\sqrt{\frac{\hbar m\omega}{2}}(a^\dagger-a).
+\]
+
+En prenant la valeur moyenne de chaque opérateur, et en posant $\alpha(t)=\langle a\rangle$, on obtient
+\[
+\boxed{\displaystyle
+\langle X\rangle(t) = \sqrt{\frac{\hbar}{2m\omega}}\big(\alpha(t)+\alpha(t)\big),
+}
+\]
+\[
+\boxed{\displaystyle
+\langle P\rangle(t) = i\sqrt{\frac{\hbar m\omega}{2}}\big(\alpha(t)-\alpha(t)\big).
+}
+\]
+Pour un état cohérent initial $\ket{\psi(t)}$ évoluant sous l'Hamiltonien libre $H_0$, les moyennes $\langle X\rangle(t)$ et $\langle P\rangle(t)$ valent des fonctions cosinus/sinus de fréquence $\omega$. En l'absence de champ électrique, la trajectoire moyenne $\langle X\rangle(t)$ obéit à l'équation différentielle d'un oscillateur harmonique libre : le mouvement est donc harmonique.
+\end{question}
+\end{document}
