@@ -77,6 +77,23 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 %\tableofcontents
 
 \begin{multicols}{2}
+  \section{\underline{Variables aléatoires discrètes}}
+  \textbf{Variable de Bernoulli :}
+  On défini X comme la variable aléatoire où :\\
+  $X = \begin{cases}
+  1 & \text{avec probabilité p}\\
+  0 & \text{avec probabilité 1-p}
+  \end{cases}$\\
+  $\mathbb{E}(X)=1\cdot p+0\cdot (1-p)=p$\\
+  $\mathbb{V}ar(X)=1^2\cdot p+0^2\cdot (1-p)-p^2=p-p^2=p(1-p)$\\
+
+  \textbf{Variable binomiale :}
+  La variable X possède n épreuves avec p probabilité de succès qu'on note :\\
+  $X~Bin(n,p)$\\
+  $\mathbb{P}(X=k)=\binom{n}{k}p^k(1-p)^{n-k}, k=0,1, ... ,n$\\
+  $F(k)=\mathbb{P}(X\leq k)=\sum_{i\leq k}\binom{n}{i}p^i(1-p)^{n-i}$, \\où $i=0,1, ... ,n$\\
+  $\mathbb{E}(X)=np$, $\mathbb{V}ar(X)=np(1-p)$\\
+
   \section{\underline{Variables aléatoires continues}}
 
 
@@ -142,10 +159,10 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
     0 & \text{si } x < 0, \\
     1 - e^{-\lambda x} & \text{si } x \geq 0
   \end{cases}
-  \] \\
+  \] 
 
-  $\mathbb{E}(X) = \dfrac{1}{\lambda}$ \\
-  $Var(X) = \dfrac{1}{\lambda^2}$ \\
+  $\mathbb{E}(X) = \dfrac{1}{\lambda}$,
+  $Var(X) = \dfrac{1}{\lambda^2}$\\
 
   
   \textbf{Variable gamma :} Une variable aléatoire $X$ suit la loi gamma avec les paramètres $\gamma$ et $\lambda$ si sa fonction de densité est donnée par : \\
@@ -165,8 +182,8 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
     \int_{0}^{x} \dfrac{\lambda e^{-\lambda t}(\lambda t)^{\gamma - 1}}{\Gamma(\gamma)} dt & \text{si } x \geq 0, \\
     0 & \text{sinon}
   \end{cases}
-  \] \\
-  $\mathbb{E}(X) = \dfrac{\gamma}{\lambda}$ \\
+  \] 
+  $\mathbb{E}(X) = \dfrac{\gamma}{\lambda}$, 
   $Var(X) = \dfrac{\gamma}{\lambda^2}$ \\
 
   \textbf{Variable de Weibull :} Une variable aléatoire $X$ suit la loi de Weibull si sa fonction de répartition est donnée par : \\
@@ -202,8 +219,8 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
     \dfrac{1}{2} e^{\dfrac{x - \mu}{\sigma}} & \text{si } x < \mu, \\
     1 - \dfrac{1}{2} e^{-\dfrac{x - \mu}{\sigma}} & \text{si } x \geq \mu
   \end{cases}
-  \] \\
-  $\mathbb{E}(X) = \mu$ \\
+  \] 
+  $\mathbb{E}(X) = \mu$, 
   $Var(X) = 2\sigma^2$ \\
 
 
@@ -212,7 +229,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   où $\mu \epsilon \mathbb{R}$ et $\sigma > 0$. On note $X~\sim N(\mu, \sigma^2)$. \\
   La fonction de répartition est : \\
   $F(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^{x} e^{-\dfrac{(t - \mu)^2}{2\sigma^2}} dt$ \\
-  $\mathbb{E}(X) = \mu$ \\
+  $\mathbb{E}(X) = \mu$,
   $Var(X) = \sigma^2$ \\
   (*Voir table de la loi normale ainsi que les théorèmes associés pour les valeurs de $F(x)$*) \\
 
@@ -220,37 +237,118 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \section{\underline{Vecteurs aléatoires}}
 
   \textbf{Vecteurs aléatoires :} Soient $X$ et $Y$ deux variables aléatoires continues. Le vecteur aléatoire $(X, Y)$ est défini par sa fonction de répartition conjointe $F(x, y)$ telle que : \\
-  $F(x,y) = \mathbb{P}(X \leq x, Y \leq y)$ où $x, y \epsilon \mathbb{R}$. \\
+  $F(x,y) = \mathbb{P}(X \leq x, Y \leq y)$ où $x, y \in \mathbb{R}$. \\
+
+  \textbf{Lois conjointes discrètes :} Pour un couple discrèt $(X,Y)$ :\\
+  Probabilité conjointe : $p(x,y) = P(X = x, Y = y)$\\
+  Marginales : $p_X(x)=\sum_{x}p(x,y), p_Y(y)=\sum_{x}p(x,y)$\\
 
   \textbf{Densité des vecteurs aléatoire continus :} La fonction de densité conjointe $f(x, y)$ du vecteur aléatoire $(X, Y)$ est définie par : \\
-  $\mathbb{P}((X,Y)\epsilon A) = \int\int_{A}f(x,y)dxdy$
-  Il faut que la densité f respecte les deux consitions suivantes : \\
+  $\mathbb{P}((X,Y)\in A) = \int\int_{A}f(x,y)dxdy$\\
+  Il faut que la densité f respecte les deux conditions suivantes : \\
   1. $f(x,y) \geq 0$ \\
   2. $\int \int_{\mathbb{R}^2} f(x,y) dx dy = 1$ \\
+  La relation entre la densié et la distribution est :\\
+  $F(x,y)=\mathbb{P}(X \leq a, Y \leq b)=\int_{\infty}^{b}\int_{-\infty}^{a}f(x,y)dxdy$\\
+  Donc, $f(x,y)=\frac{\partial^2}{\partial x\partial y}F(x,y)$\\
+  Calcul de Probabilité :\\
+  Ex.: $\mathbb{P}(x > 1, Y < 1)=2\int_{0}^{1}\int_{1}^{+\infty}e^{-x}e^{-2y}dxdy$\\
+
+  \textbf{Transformations de vecteurs :} Soit $(Y_1, Y_2)=g(X_1, X_2)$. La densité se tranforme via le jacobien :\\
+  $f_{Y_1,Y_2}(y_1,y_2)=f_{X1,X2}(h_1(y_1,y_2), h_2(y_1,y_2)) |J_{(h_1,h_2)}|$\\
+  Hyp.1: $\begin{cases}
+  y_1 = g_1(x_1,x_2)\\
+  y_2 = g_2(x_1,x_2)\\
+  \end{cases}$ $\implies \begin{cases}
+  x_1=h_1(y_1,y_2)\\
+  x_2=h_2(y_1,y_2)\\
+  \end{cases}$\\
+  Hyp.2: \\
+  $J_{(g_1,g_2)}(x_1,x_2) = \bigg|\begin{pmatrix}
+    \frac{\partial g_1(x_1,x_2)}{\partial x_1} & \frac{\partial g_1(x_1,x_2)}{\partial x_2}\\
+    \frac{\partial g_2(x_1,x_2)}{\partial x_1} & \frac{\partial g_2(x_1,x_2)}{\partial x_2}
+  \end{pmatrix}\bigg| \neq 0$\\
+  Ou encore : \\
+  $J_{(h_1,h_2)}(y_1,y_2) = \bigg|\begin{pmatrix}
+    \frac{\partial h_1(y_1,y_2)}{\partial y_1} & \frac{\partial h_1(y_1,y_2)}{\partial y_2}\\
+    \frac{\partial h_2(y_1,y_2)}{\partial y_1} & \frac{\partial h_2(y_1,y_2)}{\partial y_2}
+  \end{pmatrix}\bigg|$\\
 
 
+  \section{\underline{Quelques propriétés importantes}}
 
+  \textbf{Espérance d'une somme :}\\
+  Idée générale : $\mathbb{E}(X+Y)=\mathbb{E}(X)+\mathbb{E}(Y)$\\
+  Dans le cas discret : \\$\mathbb{E}(g(X,Y)) = \sum_{x}\sum_{y}g(x,y)p(x,y)$\\
+  Dans le cas continu : \\$\mathbb{E}(g(X,Y))=\int\int g(x,y)f(x,y)dxdy$\\
+
+  \textbf{Covariance, variance d'une somme, corrélation :} 
+  La covariance est donnée par : $\mathbb{C}ov(X,Y)=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)$\\
+  (Rappel) : si X et Y sont indé. $\implies$ covariance = 0\\
+  Corrélation : \\$\mathbb{C}orr(X,Y)$ ou $\rho(X,Y)=\frac{\mathbb{C}ov(X,Y)}{\sqrt{\mathbb{V}ar(X)\mathbb{V}ar(Y)}}$\\
+
+  \textbf{Espérance et variance conditionnelles :}
+  Déf. $\mathbb{E}$:\\
+  $\mathbb{E}(X|Y=y)=\sum_{x}xP(X=x|Y=y)$ (cas discret)\\
+  $\mathbb{E}(X|Y=y)=\int xf_{X|Y}(x|y)dx$ (cas continu)\\
+  avec $\mathbb{E}(\mathbb{E}(X|Y))=\mathbb{E}(X)$\\
+  Déf. $\mathbb{V}ar$:\\
+  $\mathbb{V}ar(X)=\mathbb{E}(\mathbb{V}ar(X|Y))+\mathbb{V}ar(\mathbb{E}(X|Y))$\\
+
+  \newpage
   
+  \textbf{Fcts génératrices des moments et fcts caractéristiques :}
+  La FGM est donnée par : $M_X(t)=\mathbb{E}(e^{tX})$\\
+  Pour discret : $\sum_{x,p_X(x)>0}e^{tX}P_X(x)$\\
+  Pour continu : $\int e^{tX}f_X(x)dx$\\
+  (Rmq) : Pour les deux cas, $M_X(0)=1$ et $M^{(p)}(0)=\mathbb{E}(X^p)$.
+  Donc,\\
+  $M'(0)=\mathbb{E}$ et $\mathbb{V}ar=M''(0)-(M'(0))^2$.\\
+  Les fcts caractéristiques sont données par : \\$\phi_X(t)=\mathbb{E}(e^{itX})$ soit $\phi_X(t)=M_X(it)$\\
+  Ex. :\\
+  \begin{enumerate}
+    \item Binomiale : $\phi(t)=(pe^{it}+1-p)^n$
+    \item Poisson : $\phi(t)=e^{\lambda(e^{it}-1)}$
+    \item Exponentielle : $\phi(t)=(1-\frac{it}{\lambda})^-1$
+    \item Normale ($\mu$,$\sigma^2$) : $\phi(t)=e^{i\mu t-\frac{\sigma^2 t^2}{2}}$
+  \end{enumerate}
 
 
+  \section{\underline{Théorèmes limites}}
 
+  \textbf{Inégalité de Markov :}
+  Soit X une variable aléa. à valeurs non-négatives. $\forall a>0$, on a :\\
+  $\mathbb{P}(X>a)\leq \frac{\mathbb{E}(X)}{a}$\\
 
+  \textbf{Inégalité de Tchecychev :}
+  Soit X une variable aléa., de moyenne $\mu$ et de variance $\sigma^2$. $\forall k>0$, on a :\\
+  $\mathbb{P}(|X-\mu|>k)\leq \frac{\sigma^2}{k^2}$\\
 
+  \textbf{Inégalité de Jensen :}
+  Soit f une fonction convexe, alors :\\
+  $\mathbb{E}(f(X))\geq f(\mathbb{E}X)$\\
 
+  \textbf{Autres inégalités :}\\
+  Soit X une variable aléa. de moyenne \underline{$\mu=0$} et de variance $\sigma^2$. $\forall a>0$, on a :\\
+  $\mathbb{P}(X \geq a)\leq \frac{\sigma^2}{\sigma^2 + a^2}$\\
+  Soit X une variable aléa. de moyenne \underline{$\mu$}  et de variance $\sigma^2$. $\forall a>0$, on a :\\
+  $\mathbb{P}(X\geq \mu +a)\leq \frac{\sigma^2}{\sigma^2 + a^2}$\\
+  et\\
+  $\mathbb{P}(X\leq \mu -a)\leq \frac{\sigma^2}{\sigma^2 + a^2}$\\
 
+  \textbf{Loi faible des grands nombres :}
+  Pour n variables aléatoires, on suppose que la moyenne $\mu = \mathbb{E}(X_i), i=1,... ,n$ est finie. $\forall\epsilon >0$, on a :\\
+  $\mathbb{P}\bigg(\bigg|\frac{\sum_{i=1}^{n}X_i}{n}-\mu\bigg|>\epsilon\bigg)\rightarrow 0$, si $n\rightarrow +\infty$\\
+  La convergence vient avec une probabilité.
 
+  \textbf{Loi forte des grands nombres :}
+  Pour n variables aléatoires, on suppose que la moyenne $\mu = \mathbb{E}(X_i), i=1,... ,n$ est finie. Avec probabilité égale à 1, on a :\\
+  $\frac{\sum_{i=1}^{n}X_i}{n}\rightarrow\mu$, si $n\rightarrow +\infty$\\
+  La convergence est sûre.
 
-
-
-
-
+  \textbf{Théorème central limite (TCL) :}
+  Pour n variables aléatoires indé., moyenne $\mu$ et de variance $\sigma^2$. Alors on a :\\
+  $\frac{\sum_{i=1}^{n}X_i-n\mu}{\sigma\sqrt{n}}\rightarrow N(0,1)$, si $n\rightarrow +\infty$\\
+  On utilise la table de loi normale pour finaliser le tout.
 \end{multicols}
-
 \end{document}
-
-
-
-
-
-
-
