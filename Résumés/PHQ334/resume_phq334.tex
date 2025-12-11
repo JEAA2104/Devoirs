@@ -57,16 +57,12 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 %   showtabs=false,
 }
 
-\newcounter{questioncounter}
-\newenvironment{question}[1]{
-\refstepcounter{questioncounter}
-\noindent\rule{0.05\textwidth}{1pt}\,\,\raisebox{-.3\ht\strutbox}{\textbf{Question \thequestioncounter : #1}}\,\,\hrulefill\par\vspace{0.4cm}
-}{\par}
 
 \begin{document}
 
 \begin{multicols}{2}
   \section{\underline{Produit tensoriel}}
+  On trouve l'énergie en additionnant l'évaluation des états dégénérés ayant la même énergie.
 
   \subsection{Produit scalaire entre deux spins}
   $\braket{\uparrow|\downarrow}=1$,
@@ -84,6 +80,44 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $(\alpha\ket{a}+\beta\ket{a'})\otimes\ket{b} = \alpha\ket{a}\otimes\ket{b} + \beta\ket{a'}\otimes\ket{b}$\\
   $\bra{a}\otimes\bra{b} = \bra{ab}$\\
   $\braket{ab|a'b'} = \braket{a|a'}\braket{b|b'}$\\
+  $\sigma_x=\begin{pmatrix}
+    0&1\\
+    1&0\\
+  \end{pmatrix}$,
+  $\sigma_y=\begin{pmatrix}
+    0&i\\
+    -i&0\\
+  \end{pmatrix}$,
+  $\sigma_z=\begin{pmatrix}
+    1&0\\
+    0&-1\\
+  \end{pmatrix}$\\
+
+  Valeurs propres : $\pm 1$ pour toutes\\
+  États propres :\\
+   $Z=\ket{0}=\begin{pmatrix}
+    1\\
+    0\\
+  \end{pmatrix}$, $\ket{1}=\begin{pmatrix}
+    0\\
+    1\\
+  \end{pmatrix}$\\
+
+  $X=\ket{+}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+    1\\
+    1\\
+  \end{pmatrix}$, $\ket{-}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+    1\\
+    -1\\
+  \end{pmatrix}$\\
+
+  $Y=\frac{1}{\sqrt{2}}\ket{+i}=\begin{pmatrix}
+    1\\
+    i\\
+  \end{pmatrix}$, $\ket{-i}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+    1\\
+    -i\\
+  \end{pmatrix}$\\
 
   \section{\underline{Oscillateur harmonique}}
   \subsection{Quelques aides}
