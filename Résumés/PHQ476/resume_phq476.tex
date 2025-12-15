@@ -95,14 +95,28 @@ Travailler sur $\ln\Omega$)\\
 \begin{equation*}
   PV = N k_B T \quad \braket{E}=\frac{3}{2}Nk_BT  
 \end{equation*}
+\textbf{Enthalpie :}
+\begin{align*}
+  H &= E + PV\\
+  &dH = dE + P dV + V dP\\
+  &= T dS + V dP\\
+  &\left( \frac{\partial T}{\partial P} \right)_S = -\left( \frac{\partial V}{\partial S} \right)_P
+\end{align*}
 \textbf{Énergie libre de Helmholtz :}
-\begin{equation*}
-  F=\braket{E}-TS 
-\end{equation*}
+\begin{align*}
+  F &= E - TS\\
+  dF &= dE - T dS - S dT\\
+  &= -S dT - P dV\\
+  &\left( \frac{\partial S}{\partial V} \right)_T=\left( \frac{\partial P}{\partial T} \right)_V
+\end{align*}
 \textbf{Énergie libre de Gibbs :}
-\begin{equation*}
-  G = \braket{E} - T S + P V
-\end{equation*}
+\begin{align*}
+  G &= H - TS\\
+  &=E+PV-TS\\
+  &=F+PV-TS\\
+  dG &= -SdT+VdP\\
+  &\left( \frac{\partial S}{\partial P} \right)_T = -\left( \frac{\partial V}{\partial T} \right)_P
+\end{align*}
 \textbf{Grand potentiel :}
 \begin{equation*}
   \Omega = \braket{E}-TS-\mu N
@@ -110,10 +124,6 @@ Travailler sur $\ln\Omega$)\\
 \textbf{Capacité thermique :}
 \begin{equation*}
   C_V = \left( \frac{\partial \braket{E}}{\partial T} \right)_{V, N} \quad C_P = \left( \frac{\partial \braket{H}}{\partial T} \right)_{P, N}
-\end{equation*}
-\textbf{Enthalpie :}
-\begin{equation*}
-  H(S, P, N) = \braket{E} + P V
 \end{equation*}
 \textbf{Lois de la thermodynamique :}
 \begin{itemize}
@@ -127,6 +137,8 @@ Travailler sur $\ln\Omega$)\\
   \item $\boxed{\Delta S_{univers} \geq 0}$\\
         $dS = \frac{\delta Q_{rev}}{T}$\\
         (Truc : Calculer $\Delta S$ le long d'un processus réversible)
+  \item $\boxed{S \xrightarrow[T\rightarrow 0]{} S_0 (cste)}$\\
+        (Truc : $S_0$ est la valeur de l'entropie à zéro absolu)
 \end{itemize}
 
 \end{multicols}
