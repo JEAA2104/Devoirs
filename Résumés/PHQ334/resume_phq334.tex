@@ -69,6 +69,9 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $\braket{\uparrow|\downarrow}=0$,
   $\braket{\downarrow|\uparrow}=0$,
   $\braket{\downarrow|\downarrow}=1$,
+
+  \subsection{État projeté}
+  $\ket{\psi'}=\frac{P\ket{\psi}}{\sqrt{\braket{\psi|P|\psi}}}$, où P $\rightarrow$ projecteurs des états à l'étude.
   \subsection{Mesure de 2 spins}
   $\ket{\uparrow}\otimes\ket{\uparrow} = \ket{\uparrow}\otimes\frac{1}{\sqrt{2}}[\ket{\uparrow}+\ket{\uparrow}] = \frac{\ket{\uparrow\uparrow}+\ket{\uparrow\downarrow}}{\sqrt{2}}$\\
   $\ket{\uparrow}\otimes\ket{\downarrow} = \ket{\uparrow}\otimes\frac{1}{\sqrt{2}}[\ket{\uparrow}-\ket{\downarrow}] = \frac{\ket{\uparrow\uparrow}-\ket{\uparrow\downarrow}}{\sqrt{2}}$\\
@@ -125,18 +128,19 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   $[a,a^\dagger] = 1$,\\
   $N=a^{\dagger}a$,\\
   $aa^\dagger = a^{\dagger}a$,\\ 
-  $aa^\dagger = 1+a^{\dagger}a = 1 + N$
+  $aa^\dagger = 1+a^{\dagger}a = 1 + N$\\
+  $[X,P]=i\hbar$
   \subsection{Petit résumé}
-  Hamiltonien : $\hat{H}=\frac{{\hat{p}^2}}{2m}+\frac{1}{2}m\omega^2\hat{x}^2$\\
+  X : $\sqrt{\frac{\hbar}{2m\omega}}(a^\dagger +a)$, P : $i\sqrt{\frac{\hbar m\omega}{2}}(a^\dagger -a)$\\
+  H : $\hbar\omega\bigg(a^\dagger a+\frac{1}{2}\bigg)\hat{H}=\frac{{\hat{p}^2}}{2m}+\frac{1}{2}m\omega^2\hat{x}^2$\\
   Énergies : $\hbar\omega\bigg(n + \frac{1}{2}\bigg)$\\
   Opérateurs d'annihilation et de création : $\hat{a}$ et $\hat{a^\dagger}=\sqrt{\frac{m\omega}{2\hbar}}\hat{x}\pm\frac{i}{\sqrt{2m\omega\hbar}}\hat{p}$ respectivement\\
 
   \section{\underline{Système de spins}}
-  (Truc : Sers-toi intelligeament de la sphère de Bloch pour éviter de faire de grosse intégrales.)\\
+  (Truc : Sers-toi intelligeament avec les coefficients de la sphère de Bloch pour éviter de faire de grosse intégrales.)\\
   On remarque que le spin ne change qu'aux instants où un pulse agit, pas entre.\\
   Le système est conservatif si l'hamiltonien ne dépend pas du temps.\\
   L'évolution dans ls temps se fait en apppliquant la phase globale $e^{\frac{iH_\pm t}{\hbar}}$
-  Les spins sont toujours par
   \subsection{Rappel : Diagonalisation de matrice}
   $det(A-\lambda I) = 0$\\
   $\implies(a-\lambda)(d-\lambda)-bc=0$\\
@@ -150,7 +154,9 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   Commutateur : $[\hat{A},\hat{B}] = \hat{A}\hat{B}-\hat{B}\hat{A}$\\
   Relation incertitude : $\Delta A\Delta B \geq \frac{1}{2}|\braket{[\hat{A},\hat{B}]}|$\\
   Valeur moyenne : $\braket{A}(t)=\braket{\psi|A|\psi}$\\
+  Évo. val. moy : $\dfrac{d}{dt}\braket{A}(t)=\frac{1}{i\hbar}\braket{[A, H(t)]}+\braket{\frac{\partial A}{\partial t }}$\\
   Projection d'état : $\braket{e_i|\psi}$ où $e_i$ est un état propre d'une base othonormée.\\
+  X flip le sens du spin, Y flip et ajoute un i (-i si spin down).
 
 
 \end{multicols}
