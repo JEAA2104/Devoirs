@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+
+\usepackage[french, english]{babel}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
+text centered, draw=black, fill=blue!10]
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
+text centered, draw=black, fill=green!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
+\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
+\renewcommand\lstlistingname{Code Python}
+
+\lstset{frame=tb,
+  language=Python,
+  numbers=left,
+  stepnumber=1,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+%   numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{paired2b},
+  stringstyle=\color{paired3b},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=1,
+  frame=single,
+%   showtabs=false,
+}
+
+\begin{document}
+\begin{multicols}{2}
+  \section{\underline{Calculabilité}}
+  \subsection{Rappels}
+  \textbf{Automate} : modèle mathématique de calcul.\\
+  \textbf{Automate fini déterministe (AFD)} : automate avec un seul état possible à chaque instant.\\
+  \textbf{Automate fini non déterministe (AFN)} : automate avec plusieurs états possibles à chaque instant.\\
+  \textbf{Alphabet} : ensemble fini t.q. $\Sigma=\{0,1\}$\\
+  \textbf{Mot} : suite finie de symboles d'un alphabet. Ex : $w=0110 \in \Sigma^4$\\
+  \textbf{Langage} : ensemble de mots sur un alphabet. Ex : $L=\{w | w \text{ commence par } 0\}$\\
+  \textbf{Taille} : nombre de symboles d'un mot. Ex : $|w|=4$\\\textbf{Concatenation} : opération binaire entre deux mots. Ex : $w_1=01, w_2=10 \Rightarrow w_1w_2=0110$\\
+  \textbf{Concatenation} : opération binaire entre deux mots. Ex : $w_1=01, w_2=10 \Rightarrow w_1w_2=0110$\\
+  \textbf{Ensemble des langages} : ensemble des parties de $\Sigma^*$. Ex : $\mathcal{L}=\mathcal{P}(\Sigma^*)$\\
+  \textbf{Renversé} : mot lu à l'envers. Ex : $w=0110 \Rightarrow w^R=0110$\\
+
+  \subsection{Machines de Turing}
+  \textbf{Définition} : une machine de Turing est un 7-uplet $(Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ où :\\
+  - $Q$ est un ensemble fini d'états\\
+  - $\Sigma$ est un alphabet d'entrée ne contenant pas le symbole blanc $\sqcup$\\
+  - $\Gamma$ est un alphabet de bande, avec $\Sigma \subset \Gamma$\\
+  - $\delta : Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R\}$ est la fonction de transition\\
+  - $q_0 \in Q$ est l'état initial\\
+  - $q_{accept} \in Q$ est l'état d'acceptation\\
+  - $q_{reject} \in Q$ est l'état de rejet, avec $q_{reject} \neq q_{accept}$\\
+\end{multicols}
+\end{document}
