@@ -1,0 +1,131 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+						
+\usepackage[english, french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Alexis Jean}
+\MySlogan{Étudiant au BSIQ}
+
+
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Détails personnels}{}
+
+\PersonalEntry{Date naissance}{9 Août 2004}
+\PersonalEntry{Addresse}{475 rue Marcel-Gingras, Québec, J1E 0L3}
+\PersonalEntry{Téléphone}{873-552-1804}
+\PersonalEntry{Courriel}{\url{alexis.jean@usherbrooke.ca}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Éducation}{}
+
+\EducationEntry{Étudiant de 2ième année}{2024 - aujourd'hui}{Baccalauréat en sciences de l'information quantique, Université de Sherbrooke.}{}
+\sepspace
+\EducationEntry{Finissant en sciences de la nature pures et appliquées}{2021 - 2024}{Cégep de Sherbrooke}{}
+\sepspace
+\EducationEntry{Finissant du secondaire}{2016 - 2021}{Concentration musique, école secondaire Mitchell-Montcalm}{}
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Expériences de travail}{}
+\EducationEntry{Université de Shebrooke}{2021 - aujourd'hui}{Régisseur à la Collation des grades, cérémonie principale: régir une des entrées du stade de l'UdS, donner des directives aux cohortes des finissants, diriger les spectateurs vers les estrades, coopérer avec l'équipe des régisseurs pour assurer le bon déroulement de la cérémonie. \newline Bénévole au centre d'aide du BSIQ et bénévole aux intégrations de la cohorte 2025 du BSIQ}{}
+\EducationEntry{Centre des arts de la scène Jean-Besré}{2022 - aujourd'hui}{Service de l'accueil: Répondre aux appels, accueillir et diriger les utilisateurs, effectuer des rondes de surveillance, entretien léger des installations de la cuisine et des locaux, faire l'inventaire, Remise à zéro des locaux.}{}
+\sepspace
+\EducationEntry{Orchestre à vents de Sherbrooke}{2022 - 2025}{Percussionniste remplaçant}{}
+\sepspace
+\EducationEntry{Résidence pour personnes âgées Le VÜ}{2021-2022}{Serveur aux tables: faire la mise en place de la salle, prendre les commandes des résidents, servir et desservir les tables assignées, ménage et remise de la salle à zéro.}{}
+\sepspace
+\EducationEntry{Harmonie Montcalm, école secondaire Mitchell-Montcalm}{2020-2021}{Chef de section des percussions: distribuer et assigner les différents partitions aux percussionnistes, motiver les troupes et faire respecter le silence durant les répétitions.}{}
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Aptitudes et compétences}{}
+
+\SkillsEntry{Languages de programmation}{\textsc{Python}, \textsc{Java}, \textsc{C++}}
+\sepspace
+\SkillsEntry{Outils}{\textsc{Suite office 365}, \textsc{LaTeX}, \textsc{Git}, \textsc{Visual Studio Code}}
+\sepspace
+\SkillsEntry{Langues}{Français (Langue maternelle)}
+\SkillsEntry{}{Anglais (Très bon)}
+\sepspace
+\SkillsEntry{Qualités}{Rigueur, perfectionnisme, esprit scientifique, ponctualité, politesse,}
+\SkillsEntry{}{sens de l'humour, créativité.}
+
+%%% Personal skills
+%%% ------------------------------------------------------------
+\NewPart{Informations complémentaires}{}
+\SkillsEntry{Permis de conduire}{Classe 5 (Voiture)}
+\sepspace
+\SkillsEntry{Centres d'intérêt}{Musique (tout genre), natation, jeux vidéo, sciences, informatique, cinéma}
+\end{document}
