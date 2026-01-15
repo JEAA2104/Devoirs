@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.16)  8 JAN 2026 10:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.16)  15 JAN 2026 13:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Utilisateur/Desktop/important/lettre motivation/lettre_motivation_Alexis_Jean.tex"
-(c:/Users/Utilisateur/Desktop/important/lettre motivation/lettre_motivation_Alexis_Jean.tex
+**"c:/Users/Utilisateur/Documents/Devoirs/important/lettre motivation/lettre_motivation_Alexis_Jean.tex"
+(c:/Users/Utilisateur/Documents/Devoirs/important/lettre motivation/lettre_motivation_Alexis_Jean.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
 (c:/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -456,14 +456,14 @@ Package rerunfilecheck Info: File `lettre_motivation_Alexis_Jean.out' has not ch
  ) 
 Here is how much of TeX's memory you used:
  19393 strings out of 467800
- 363993 string characters out of 5436061
- 765537 words of memory out of 5000000
+ 364023 string characters out of 5436061
+ 766537 words of memory out of 5000000
  47760 multiletter control sequences out of 15000+600000
  627433 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,91p,944b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,91p,1041b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on lettre_motivation_Alexis_Jean.pdf (1 page, 56519 bytes).
+Output written on lettre_motivation_Alexis_Jean.pdf (1 page, 56955 bytes).
 PDF statistics:
  30 PDF objects out of 1000 (max. 8388607)
  20 compressed objects within 1 object stream
