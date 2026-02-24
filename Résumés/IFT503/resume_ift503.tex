@@ -18,41 +18,6 @@
 
 \usepackage{listings}
 
-\usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
-
-\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1cm,
-text centered, draw=black, fill=blue!10]
-\tikzstyle{process} = [rectangle, rounded corners, minimum width=5cm, minimum height=1cm,
-text centered, draw=black, fill=green!10]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
-minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15]
-\tikzstyle{decision} = [diamond, aspect=2, draw=black, fill=yellow!15, text centered]
-\tikzstyle{arrow} = [thick, ->, >=Stealth]
-
-\renewcommand\lstlistingname{Code Python}
-
-\lstset{frame=tb,
-  language=Python,
-  numbers=left,
-  stepnumber=1,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-%   numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{paired2b},
-  stringstyle=\color{paired3b},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=1,
-  frame=single,
-%   showtabs=false,
-}
-
 \begin{document}
 \begin{multicols}{2}
   \setlength{\columnseprule}{0.4pt}
@@ -75,14 +40,17 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   - $\Sigma$ est un alphabet d'entrée ne contenant pas le symbole blanc $\sqcup$\\
   - $\Sigma^{*}$ est l'ensemble de tous les mots sur $\Sigma$\\
   - $\Gamma$ est un alphabet de bande, avec $\Sigma \subset \Gamma$\\
-  - $\delta : Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R\}$ est la fonction de transition\\
+  - $\delta : Q \times \Gamma \rightarrow Q \times \Gamma \times \{G, D\}$ est la fonction de transition\\
   - $q_0 \in Q$ est l'état initial\\
   - $q_{accept} \in Q$ est l'état d'acceptation\\
   - $q_{reject} \in Q$ est l'état de rejet, avec $q_{reject} \neq q_{accept}$ (jamais dessiné, mais tjrs là)\\
   - Tête lecture : tjrs sur la bande, peut lire et écrire des symboles, et se déplacer à gauche (L) ou à droite (R)\\
-  \textbf{Language reconnu} : on dit que la MT $M$ reconnaît un langage $L$ si pour tout mot $w \in \Sigma^*$, $M$ accepte $w$ si et seulement si $w \in L$.\\
+  \textbf{Language reconnu} : on dit que la MT $M$ reconnaît un langage $L$ si pour tout mot $w \in \Sigma^*$, $M$ accepte $w$ si et seulement si $w \in L$. (aussi appelé problème)\\
   \textbf{MT à k rubans} : une MT à $k$ rubans est une MT avec $k$ bandes, chacune avec sa propre tête de lecture.\\
   - On les note $\delta:Q \times \Gamma^k \rightarrow Q \times \Gamma^k \times \{L, R\}^k$\\
+  - Émulable par une MT à un seul ruban en temps poly.\\
+  \textbf{MT bi-dimensionnelle} : une MT avec un nombre infini de rubans est émulable par une MT à un seul ruban en temps poly.\\
+  NOTE : Les objets utilisés dans le pseudo-code sont émulable en temps poly par une MT à un seul ruban.\\
 
   \section{\underline{Décidabilité}}
   \subsection{Définitions}
@@ -102,7 +70,6 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \indent \* Props : $SELF$ est REC, mais non DEC.\\
   - \underline{$E_{MT}$} : langage des mots pour lesquels une MT ne s'arrête pas.\\
   \indent \* Props : $E_{MT}$ est REC, mais non DEC.\\
-
   \subsection{Réduction}
   \textbf{Définition} : une réduction de $A$ à $B$ est une fonction calculable $f: \Sigma^* \rightarrow \Sigma^*$ t.q $\forall w, w \in A \iff f(w) \in B$.\\
   \textbf{Théorème de réduction} : si $A \leq B$ et $B$ est DEC, alors $A$ est DEC.\\
@@ -111,7 +78,8 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   - Preuve : $w \in A_{MT} \iff M \text{ accepte } w \iff M_w \text{ s'arrête sur } w \iff f(w) \in HALT_{MT}$\\
   \textbf{Language mutlivoque-réductible} : un langage $A$ est multivoque-réductible à un langage $B$ s'il existe une fonction calculable $f: \Sigma^* \rightarrow \Sigma^*$ t.q $\forall w, w \in A \iff f(w) \in B$ et $f$ peut produire plusieurs images pour un même mot d'entrée.\\
   \textbf{Turing-réductible} : un langage $A$ est Turing-réductible à un langage $B$ s'il existe une machine de Turing qui peut décider $A$ en utilisant un oracle pour $B$.\\
-  \textbf{Mt minimale} : une MT minimale pour un langage $L$ est une MT qui reconnaît $L$ et a le moins d'états possible.\\
+  \textbf{MT minimale} : une MT minimale pour un langage $L$ est une MT qui reconnaît $L$ et a le moins d'états possible.\\
+  \textbf{Turing-reconnaissable} : C'est équivalent à la notion de langage reconnaissable (REC).\\
   \subsection{Trucs supp.}
   \begin{itemize}[noitemsep]
     \item \textbf{$\leq_m$} : notation pour la réduction multivoque-réductible.\\
@@ -120,7 +88,6 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
            - $L \in DEC \longleftrightarrow L \in REC \wedge \overline{L} \in REC$.\\
            - Si $A \leq_m B \wedge A \notin REC/DEC$, alors $B \notin REC/DEC$.\\
 \end{itemize}
-
 \subsection{Théorème de la récursion}
 \textbf{Théorème de la récursion} : pour toute machine de Turing $M$ et tout mot $w$, il existe une machine de Turing $M'$ telle que $M'$ accepte un mot $x$ si et seulement si $M$ accepte le mot $w$.\\
 \textbf{Preuve} : on peut construire $M'$ de la manière suivante :
@@ -150,6 +117,26 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 - \underline{TRUC} : On choisit 3-SAT comme réduction lorsque le problème est structurellement local (ex. : 2 ou 3 objets, graphes, etc.) et on prend SAT lorsque le problème est plus général ou plus complexe( ex.. : circuits logiques, problèmes avec contraintes arbitraires).\\
 
 \section{\underline{Extra pour l'exam}}
+\textbf{Étapes pour dessiner une MT} :
+\begin{itemize}[noitemsep]
+  \item Identifier les états nécessaires pour le processus de calcul.
+  \item Définir les transitions entre les états en fonction des symboles lus et des actions à effectuer (écrire, déplacer la tête).
+  \item S'assurer que la machine a un état d'acceptation.
+  \item Vérifier que la machine est complète, c'est-à-dire qu'elle a une transition définie pour chaque combinaison d'état et de symbole lu.
+\end{itemize}
+\textbf{Pour calculer le tmp d'exéc. d'une MT} : 
+\begin{itemize}[noitemsep]
+  \item Compter le nombre de transitions effectuées par la machine sur un mot d'entrée donné.
+  \item Chaque transition prend un temps constant.
+  \item Le temps total est proportionnel au nombre de transitions effectuées.
+\end{itemize}
+\textbf{Implication entre language et réduction} : Voici les étapes pour trouver si une propriété d'un language s'applique aussi à un language à partir duquel il est réductible :
+\begin{itemize}[noitemsep]
+  \item Identifier la propriété que vous souhaitez vérifier pour le language cible (par exemple, si le language est décidable ou reconnaissable).
+  \item Trouver un language de référence pour lequel la propriété est connue (par exemple, $A_{MT}$ pour les langages non décidable).
+  \item Vérifier si le language cible est réductible au language de référence en utilisant une réduction appropriée (par exemple, une réduction multivoque-réductible ou une réduction Turing-réductible).
+  \item Si la réduction est réussie et que le language de référence possède la propriété en question, alors le language cible possède également cette propriété.
+\end{itemize}
 
 \end{multicols}
 \end{document}
