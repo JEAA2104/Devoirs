@@ -55,6 +55,7 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
 
 \begin{document}
 \begin{multicols}{2}
+  \setlength{\columnseprule}{0.4pt}
   \section{\underline{Calculabilité}}
   \subsection{Rappels}
   \textbf{Automate} : modèle mathématique de calcul.\\
@@ -72,10 +73,83 @@ minimum width=4cm, minimum height=1cm, text centered, draw=black, fill=orange!15
   \textbf{Définition} : une machine de Turing est un 7-uplet $(Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$ où :\\
   - $Q$ est un ensemble fini d'états\\
   - $\Sigma$ est un alphabet d'entrée ne contenant pas le symbole blanc $\sqcup$\\
+  - $\Sigma^{*}$ est l'ensemble de tous les mots sur $\Sigma$\\
   - $\Gamma$ est un alphabet de bande, avec $\Sigma \subset \Gamma$\\
   - $\delta : Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R\}$ est la fonction de transition\\
   - $q_0 \in Q$ est l'état initial\\
   - $q_{accept} \in Q$ est l'état d'acceptation\\
-  - $q_{reject} \in Q$ est l'état de rejet, avec $q_{reject} \neq q_{accept}$\\
+  - $q_{reject} \in Q$ est l'état de rejet, avec $q_{reject} \neq q_{accept}$ (jamais dessiné, mais tjrs là)\\
+  - Tête lecture : tjrs sur la bande, peut lire et écrire des symboles, et se déplacer à gauche (L) ou à droite (R)\\
+  \textbf{Language reconnu} : on dit que la MT $M$ reconnaît un langage $L$ si pour tout mot $w \in \Sigma^*$, $M$ accepte $w$ si et seulement si $w \in L$.\\
+  \textbf{MT à k rubans} : une MT à $k$ rubans est une MT avec $k$ bandes, chacune avec sa propre tête de lecture.\\
+  - On les note $\delta:Q \times \Gamma^k \rightarrow Q \times \Gamma^k \times \{L, R\}^k$\\
+
+  \section{\underline{Décidabilité}}
+  \subsection{Définitions}
+  \textbf{Language régulier (REG)} : un langage est régulier s'il peut être reconnu par un automate fini.\\
+  \textbf{Language décidable (DEC)} : un langage est décidable s'il peut être reconnu par une machine de Turing qui s'arrête pour tout mot d'entrée.\\
+  \textbf{Language reconnaissable (REC)} : un langage est reconnaissable s'il peut être reconnu par une machine de Turing qui s'arrête pour les mots du langage, mais peut ne pas s'arrêter pour les mots qui n'appartiennent pas au langage.\\
+  - NOTE : Ne pas oublier les compléments de ces langages, qui peuvent être indécidables ou non reconnaissables.\\
+  \textbf{Théorème de Rice} : tout langage non trivial (c'est-à-dire, tout langage qui n'est ni vide ni égal à $\Sigma^*$) est non DEC.\\
+  \textbf{Machines intéressantes} :\\
+  - \underline{$A_{AFD}$} : langage des mots acceptés par un AFD.\\
+  \indent \* Props : $A_{AFD}$ est REG, DEC et REC.\\
+  - \underline{$A_{MT}$} : langage des mots acceptés par une MT.\\
+  \indent \* Props : $A_{MT}$ est REC, mais non DEC.\\
+  - \underline{$HALT_{MT}$} : langage des mots pour lesquels une MT s'arrête.\\
+  \indent \* Props : $HALT_{MT}$ est REC, mais non DEC.\\
+  - \underline{$SELF$} : langage des mots qui représentent une MT qui s'accepte elle-même.\\
+  \indent \* Props : $SELF$ est REC, mais non DEC.\\
+  - \underline{$E_{MT}$} : langage des mots pour lesquels une MT ne s'arrête pas.\\
+  \indent \* Props : $E_{MT}$ est REC, mais non DEC.\\
+
+  \subsection{Réduction}
+  \textbf{Définition} : une réduction de $A$ à $B$ est une fonction calculable $f: \Sigma^* \rightarrow \Sigma^*$ t.q $\forall w, w \in A \iff f(w) \in B$.\\
+  \textbf{Théorème de réduction} : si $A \leq B$ et $B$ est DEC, alors $A$ est DEC.\\
+  \textbf{Exemple de réduction} : $A_{MT} \leq HALT_{MT}$\\
+  - Construction de $f$: $f(w) = \langle M_w, w \rangle$ où $M_w$ est une MT qui simule $M$ sur $w$ et s'arrête si $M$ accepte $w$.\\
+  - Preuve : $w \in A_{MT} \iff M \text{ accepte } w \iff M_w \text{ s'arrête sur } w \iff f(w) \in HALT_{MT}$\\
+  \textbf{Language mutlivoque-réductible} : un langage $A$ est multivoque-réductible à un langage $B$ s'il existe une fonction calculable $f: \Sigma^* \rightarrow \Sigma^*$ t.q $\forall w, w \in A \iff f(w) \in B$ et $f$ peut produire plusieurs images pour un même mot d'entrée.\\
+  \textbf{Turing-réductible} : un langage $A$ est Turing-réductible à un langage $B$ s'il existe une machine de Turing qui peut décider $A$ en utilisant un oracle pour $B$.\\
+  \textbf{Mt minimale} : une MT minimale pour un langage $L$ est une MT qui reconnaît $L$ et a le moins d'états possible.\\
+  \subsection{Trucs supp.}
+  \begin{itemize}[noitemsep]
+    \item \textbf{$\leq_m$} : notation pour la réduction multivoque-réductible.\\
+    \item \textbf{$\leq_T$} : notation pour la réduction Turing-réductible.\\
+    \item  $\overline{A_{MT}}$ n'est pas REC, alors : \\
+           - $L \in DEC \longleftrightarrow L \in REC \wedge \overline{L} \in REC$.\\
+           - Si $A \leq_m B \wedge A \notin REC/DEC$, alors $B \notin REC/DEC$.\\
+\end{itemize}
+
+\subsection{Théorème de la récursion}
+\textbf{Théorème de la récursion} : pour toute machine de Turing $M$ et tout mot $w$, il existe une machine de Turing $M'$ telle que $M'$ accepte un mot $x$ si et seulement si $M$ accepte le mot $w$.\\
+\textbf{Preuve} : on peut construire $M'$ de la manière suivante :
+\begin{itemize}[noitemsep]
+  \item- $M'$ ignore son entrée $x$ et simule $M$ sur $w$.\\
+  \item Si $M$ accepte $w$, alors $M'$ accepte $x$.\\
+  \item Si $M$ rejette $w$, alors $M'$ rejette $x$.\\
+  \item Si $M$ ne s'arrête pas sur $w$, alors $M'$ ne s'arrête pas sur $x$.\\
+\end{itemize}
+
+\section{\underline{P vs NP}}
+\textbf{Classe P} : classe des langages qui peuvent être décidés par une machine de Turing déterministe en temps polynomial.\\
+\textbf{Classe NP} : classe des langages qui peuvent être décidés par une machine de Turing non déterministe en temps polynomial.\\
+\textbf{Problème NP-complet} : un problème est NP-complet s'il est dans NP et que tout problème dans NP peut être réduit à lui en temps polynomial.\\
+\textbf{Problème NP-difficile} : un problème est NP-difficile s'il est au moins aussi difficile que les problèmes NP-complets, c'est-à-dire que tout problème NP-complet peut être réduit à lui en temps polynomial.\\
+\textbf{Certificat} : un certificat pour un problème de décision est une preuve qui peut être vérifiée en temps polynomial par une machine de Turing déterministe.\\
+\textbf{Vérificateur} : un vérificateur pour un problème de décision est une machine de Turing déterministe qui prend en entrée un mot et un certificat, et qui accepte si le certificat est valide pour le mot.\\
+\textbf{Exemples de problèmes NP-complets} :\\
+- \textbf{SAT} : problème de satisfiabilité des formules booléennes.\\
+- \textbf{3-SAT} : problème de satisfiabilité des formules booléennes en forme normale conjonctive avec au plus 3 littéraux par clause.\\
+- \textbf{Clique} : problème de trouver une clique de taille $k$ dans un graphe.\\
+- \textbf{Vertex Cover} : problème de trouver un ensemble de sommets de taille $k$ qui couvre toutes les arêtes d'un graphe.\\
+- \textbf{Subset Sum} : problème de trouver un sous-ensemble d'un ensemble de nombres qui somme à un nombre donné.\\
+\textbf{Set-cover} : problème de trouver un sous-ensemble de sous-ensembles qui couvre un ensemble universel.\\
+\textbf{Théorème de Cook-Levin} : SAT est NP-complet.\\
+\textbf{Théorème de Karp} : 3-SAT, Clique, Vertex Cover et Subset Sum sont NP-complets.\\
+- \underline{TRUC} : On choisit 3-SAT comme réduction lorsque le problème est structurellement local (ex. : 2 ou 3 objets, graphes, etc.) et on prend SAT lorsque le problème est plus général ou plus complexe( ex.. : circuits logiques, problèmes avec contraintes arbitraires).\\
+
+\section{\underline{Extra pour l'exam}}
+
 \end{multicols}
 \end{document}
