@@ -54,10 +54,17 @@
 
   \section{\underline{Décidabilité}}
   \subsection{Définitions}
+  \textbf{Décideur} : M MT est décideur de L si M s'arrête sur toute entrée et $M(w) \iff w \in L$\\
+  \textbf{Reconnaisseur} : M MT est un reconnaisseur de L si $M(w)=1 \iff w \in L$\\
+  \textbf{CO-REC} : un langage est dans CO-REC s'il existe une MT qui reconnaît son complément.
+  (Si REC $\cap$ CO-REC, alsors DEC)\\
   \textbf{Language régulier (REG)} : un langage est régulier s'il peut être reconnu par un automate fini.\\
   \textbf{Language décidable (DEC)} : un langage est décidable s'il peut être reconnu par une machine de Turing qui s'arrête pour tout mot d'entrée.\\
   \textbf{Language reconnaissable (REC)} : un langage est reconnaissable s'il peut être reconnu par une machine de Turing qui s'arrête pour les mots du langage, mais peut ne pas s'arrêter pour les mots qui n'appartiennent pas au langage.\\
   - NOTE : Ne pas oublier les compléments de ces langages, qui peuvent être indécidables ou non reconnaissables.\\
+  \textbf{Théorème} : $REG \subsetneq DEC \subsetneq REC \subsetneq \mathcal{L}$\\
+  \textbf{Théorème} : $A \leq_m B$ et $B$ est DEC $\Rightarrow A$ est DEC et $A \leq_m B \wedge B \in REC \rightarrow A \in REC$.\\
+  \textbf{Corrolaire} : $A \leq_m B$ et $A$ est non DEC $\Rightarrow B$ est non DEC et $A \leq_m B \wedge A \notin REC \rightarrow B \notin REC$.\\
   \textbf{Théorème de Rice} : tout langage non trivial (c'est-à-dire, tout langage qui n'est ni vide ni égal à $\Sigma^*$) est non DEC.\\
   \textbf{Machines intéressantes} :\\
   - \underline{$A_{AFD}$} : langage des mots acceptés par un AFD.\\
@@ -105,6 +112,8 @@
 \textbf{Problème NP-difficile} : un problème est NP-difficile s'il est au moins aussi difficile que les problèmes NP-complets, c'est-à-dire que tout problème NP-complet peut être réduit à lui en temps polynomial.\\
 \textbf{Certificat} : un certificat pour un problème de décision est une preuve qui peut être vérifiée en temps polynomial par une machine de Turing déterministe.\\
 \textbf{Vérificateur} : un vérificateur pour un problème de décision est une machine de Turing déterministe qui prend en entrée un mot et un certificat, et qui accepte si le certificat est valide pour le mot.\\
+\textbf{Réduction polynomiale} : une réduction de $A$ à $B$ est une fonction calculable en temps polynomial $f: \Sigma^* \rightarrow \Sigma^*$ t.q $\forall w, w \in A \iff f(w) \in B$.
+(Noté $A \leq_p B$)\\
 \textbf{Exemples de problèmes NP-complets} :\\
 - \textbf{SAT} : problème de satisfiabilité des formules booléennes.\\
 - \textbf{3-SAT} : problème de satisfiabilité des formules booléennes en forme normale conjonctive avec au plus 3 littéraux par clause.\\
@@ -137,6 +146,12 @@
   \item Vérifier si le language cible est réductible au language de référence en utilisant une réduction appropriée (par exemple, une réduction multivoque-réductible ou une réduction Turing-réductible).
   \item Si la réduction est réussie et que le language de référence possède la propriété en question, alors le language cible possède également cette propriété.
 \end{itemize}
-
+\textbf{Pour montrer qu'un problème est NP-complet} : 
+\begin{itemize}[noitemsep]
+  \item Montrer que le problème est dans NP.
+  \item Choisir un problème NP-complet connu.
+  \item Réduire le problème choisi au problème en question.
+\end{itemize}
+(Se référer au truc pour choisir entre 3-SAT et SAT pour la réduction)
 \end{multicols}
 \end{document}
