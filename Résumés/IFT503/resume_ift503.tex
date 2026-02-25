@@ -133,6 +133,13 @@
   \item S'assurer que la machine a un état d'acceptation.
   \item Vérifier que la machine est complète, c'est-à-dire qu'elle a une transition définie pour chaque combinaison d'état et de symbole lu.
 \end{itemize}
+\textbf{Étapes faire réduction de $A$ à $B$} :
+\begin{itemize}[noitemsep]
+  \item Identifier les éléments clés du problème $A$ que vous souhaitez réduire.
+  \item Trouver une correspondance entre les éléments de $A$ et les éléments de $B$.
+  \item Construire une fonction de réduction $f$ qui transforme les instances de $A$ en instances de $B$ de manière à ce que la solution de l'instance de $B$ corresponde à la solution de l'instance de $A$.
+  \item Vérifier que la fonction de réduction est calculable en temps polynomial (si nécessaire).
+\end{itemize}
 \textbf{Pour calculer le tmp d'exéc. d'une MT} : 
 \begin{itemize}[noitemsep]
   \item Compter le nombre de transitions effectuées par la machine sur un mot d'entrée donné.
