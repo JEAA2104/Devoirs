@@ -1,0 +1,131 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+						
+\usepackage[english, french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Alexis Jean}
+\MySlogan{BSIQ student}
+
+
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Birthday}{August 9th 2004}
+\PersonalEntry{Address}{475 rue Marcel-Gingras, Québec, J1E 0L3}
+\PersonalEntry{Phone}{873-552-1804}
+\PersonalEntry{Email}{\url{alexis.jean@usherbrooke.ca}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{2nd year student}{2024 - Today}{Bachelor's degree in sciences of quantum information, Sherbrooke University.}{}
+\sepspace
+\EducationEntry{Graduate in pure and applied natural sciences}{2021 - 2024}{Cégep de Sherbrooke}{}
+\sepspace
+\EducationEntry{High school graduate}{2016 - 2021}{Music orientation, Mitchell-Montcalm High school}{}
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experiences}{}
+\EducationEntry{Sherbrooke University}{2021 - Today}{Stage manager at Graduation Ceremony, Main Ceremony: managing one of the entrances of the stadium of the university, give directions to the cohorts, guide visitors to the stands, cooperate with the main organizers to assure a successful ceremony. \newline Helper at the help center for the bachelor's degree and helper for the initiations of the cohort of 2025.}{}
+\EducationEntry{Centre des arts de la scène Jean-Besré (CASJB)}{2022 - Today}{Welcoming service: Answering calls, welcoming and guiding visitors, doing security rounds, light maintenance of the installations, doing the product inventory, Readying up the reservation studios.}{}
+\sepspace
+\EducationEntry{Wind Orchestra of Sherbrooke}{2022 - 2025}{Substitute percussionist}{}
+\sepspace
+\EducationEntry{Residency for the elderly Le VÜ}{2021-2022}{Server in the dinner: sit down the residents, take the orders, serving and cleaning the tables, cleaning of the dinning hall.}{}
+\sepspace
+\EducationEntry{Montcalm wind orchestra, Mitchell-Montcalm High School}{2020-2021}{Percussion leader: distribute and assigning charts to the percussionists, motivating and keeping the discipline within the section.}{}
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Programming languages}{\textsc{Python}, \textsc{Java}, \textsc{C++}}
+\sepspace
+\SkillsEntry{Tools}{\textsc{Office 365 suite}, \textsc{LaTeX}, \textsc{Git}, \textsc{Visual Studio Code}}
+\sepspace
+\SkillsEntry{Languages}{French (Maternal tongue)}
+\SkillsEntry{}{English (Very good)}
+\sepspace
+\SkillsEntry{Qualities}{Rigor, perfectionism, scientific mindset, punctuality, politeness,}
+\SkillsEntry{}{sense of humor, creativity}
+
+%%% Personal skills
+%%% ------------------------------------------------------------
+\NewPart{Additional informations}{}
+\SkillsEntry{Driving licence}{Class 5 (Cars)}
+\sepspace
+\SkillsEntry{Interests}{Music (any genre), karate, video games, sciences, cinema}
+\end{document}
